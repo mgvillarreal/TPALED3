@@ -1,0 +1,23 @@
+<div class="mt-3">
+    <h2 class="text-center titulo">Adivina el número</h2>
+
+    <p>Tendrás que adivinar un número del 1 al 100, contaremos tus intentos así que veremos qué tan bueno eres...</p>
+
+    <div class="mt-4 mb-1 d-flex justify-content-center">
+        <p class="leyenda-error" *ngIf="resultado==0">El número está fuera de los límites, intenta entre 1 y 100</p>
+        <p class="leyenda-win" *ngIf="resultado==1">Ganaste!! Genial, has acertado en {{this.intentos}} intentos.</p>
+        <p class="leyenda" *ngIf="resultado==2">Uh! Mejor intenta un número más bajo...</p>
+        <p class="leyenda" *ngIf="resultado==3">Uh! Mejor intenta un número más alto...</p>
+    </div>
+    
+
+    <div class="mt-4 d-flex justify-content-center">
+        <input type="number" name="num" placeholder="Número del 1 al 100" [(ngModel)]="numJug">
+    </div>
+
+    <div class="mt-2 d-flex justify-content-center">
+        <button class="btn btn-primary-blue ml-1" (click)="jugar()">Jugar</button>
+        <button class="btn btn-primary-blue ml-1" (click)="resetear()">Reseat</button>
+        <button class="btn btn-primary-blue ml-1" routerLink="/juegos">Salir</button>
+    </div>
+</div>

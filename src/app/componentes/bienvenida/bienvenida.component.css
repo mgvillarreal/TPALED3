@@ -1,0 +1,32 @@
+body{
+    font-family:'Source Sans Pro', sans-serif;
+}
+
+.texto-azul-titulo {
+    color:#172a74;
+    font-weight: 400;
+}
+
+.texto-azul {
+    color:#172a74;
+}
+  
+.texto-centrado {
+    text-align: center;
+}
+
+.bggray {
+    background-color:E6EBEC;
+    padding-bottom:10px;
+}
+
+.iconos {
+    height: 7rem;
+    width: 7rem;
+    background-color: #172a74;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+}

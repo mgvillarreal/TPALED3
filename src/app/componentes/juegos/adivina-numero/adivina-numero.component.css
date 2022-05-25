@@ -1,0 +1,33 @@
+.btn-primary-blue {
+    border: 1px solid #172a74 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #172a74
+}
+
+.btn-primary-blue:hover {
+    font-size: large;
+}
+
+.leyenda-error {
+    color: red;
+    font-size: large;
+    font-weight: 500;
+}
+
+.leyenda-win {
+    color:#37d3f6;
+    font-size: large;
+    font-weight: 500;
+}
+
+.leyenda {
+    font-size: large;
+    font-weight: 500;
+}
+
+.titulo {
+    color: #172a74;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 550;
+}

@@ -1,0 +1,77 @@
+body {
+    font-family:'Source Sans Pro', sans-serif;
+}
+
+.card {
+    border: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #172a74
+}
+
+.card:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #21a9af;
+    transform: scaleY(0);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+
+.card:hover::after {
+    transform: scaleY(1)
+}
+
+.fonts {
+    font-size: 14px
+}
+
+.social-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0
+}
+
+.social-list li {
+    padding: 10px;
+    color: #172a74;
+    font-size: 19px
+}
+
+.buttons button:nth-child(1) {
+    border: 1px solid #172a74;
+    color: #172a74;
+    height: 40px
+}
+
+.buttons button:nth-child(1):hover {
+    border: 1px solid #21a9af;
+    color: #fff;
+    height: 40px;
+    background-color: #21a9af;
+}
+
+.social-list a {
+    text-decoration: none;
+    color: #172a74;
+}
+
+.social-list a:hover {
+    color: #37d3f6
+}
