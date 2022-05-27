@@ -1,0 +1,23 @@
+.texto-negritas{
+    font-weight: 500;
+}
+
+.resultado{
+    font-size:larger;
+}
+
+.btn-primary-blue {
+    border: 1px solid #172a74 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #172a74
+}
+
+.btn-primary-blue:hover {
+    font-size: large;
+}
+
+.img{
+    height: 100px;
+    width: 100px;
+}
