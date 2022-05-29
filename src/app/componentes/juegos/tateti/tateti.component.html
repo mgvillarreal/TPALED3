@@ -1,1 +1,42 @@
-<p>tateti works!</p>
+<div class="mt-3">
+    <h2 class="text-center titulo">Ta Te Tí</h2>
+
+    <div class="text-center">
+        <p> Jugador juega con O</p>
+        <p> Computadora juega con X</p>
+    </div>
+    
+    <!-- <section id="jugadores">
+        <div id="comp"></div>
+        <div id="hum"></div>
+    </section> -->
+
+    <!-- <section id="turno"></section> -->
+
+    <section id="tablero">
+
+        <div class="celda celda-cero celda-top" id="ceroCero" (click)="jugadaHumano(this, 0, 0)"></div>
+        <div class="celda celda-top" id="ceroUno" (click)="jugadaHumano(this, 0, 1)"></div>
+        <div class="celda celda-top celda-dos" id="ceroDos" (click)="jugadaHumano(this, 0, 2)"></div>
+        <div class="celda celda-cero" id="unoCero" (click)="jugadaHumano(this, 1, 0)"></div>
+        <div class="celda" id="unoUno" (click)="jugadaHumano(this, 1, 1)"></div>
+        <div class="celda celda-dos" id="unoDos" (click)="jugadaHumano(this, 1, 2)"></div>
+        <div class="celda celda-cero celda-bottom" id="dosCero" (click)="jugadaHumano(this, 2, 0)"></div>
+        <div class="celda celda-bottom" id="dosUno" (click)="jugadaHumano(this, 2, 1)"></div>
+        <div class="celda celda-bottom celda-dos" id="dosDos" (click)="jugadaHumano(this, 2, 2)"></div>
+
+    </section>
+
+    <section class="ficha">
+        <button class="ficha" (click)="eligeFicha()">Jugar</button>
+        <!-- <p>Elige ficha:</p>
+        <button class="ficha" (click)="eligeFicha('X')">X</button>
+        <button class="ficha" (click)="eligeFicha('O')">O</button> -->
+    </section>
+    
+    <section class="marcador">
+        <section id="ganadosH"></section>
+        <section id="ganadosC"></section>
+        <section id="empate"></section>
+    </section>
+</div>
