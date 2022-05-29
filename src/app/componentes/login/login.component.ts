@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   miUsuario:Usuario; //aca se define la clase
   nombreOb:string;
+  mailOb:string;
   resultado:boolean = true;
   msjValidacion?:string;
   
@@ -38,7 +39,8 @@ export class LoginComponent implements OnInit {
           {
             this.router.navigate(['juegos']);
             this.nombreOb = usuario.nombre;
-            this.guardaLogin();
+            this.mailOb = usuario.mail;
+            this.guardaLoginIng();
             mailEncontrado = 1;
           }
           else
@@ -63,14 +65,13 @@ export class LoginComponent implements OnInit {
 
   }
 
-  guardaLogin():void {
+  guardaLoginIng():void {
     let fechaIng = new Date();
     let usuarioLog = [];
-    usuarioLog.push({nombre: this.nombreOb, mail: this.miUsuario.mail, fechaIng: fechaIng.toLocaleDateString()})
+    usuarioLog.push({nombre: this.nombreOb, mail: this.mailOb, fechaIng: fechaIng.toLocaleDateString()})
     localStorage.setItem("usuarioLog", JSON.stringify(usuarioLog));
-    this.miUsuario.validaLogeo();
-  }
-
+    this.miUsuario.estaLogueado = true;
+}
 
   /*ingresarAdmin(): void {
     console.info('Objeto ', this.miUsuario);

@@ -23,30 +23,29 @@ export class Usuario {
         localStorage.setItem("usuarios", JSON.stringify(usuarios)); //guardo el array actualizado
     }
 
-    validaLogeo(): void{
-        if(typeof localStorage.getItem('usuarioLog') !== null)
-        {
-          this.estaLogueado = true;
-          let arrayLog = JSON.parse(localStorage.getItem('usuarios'));
-          this.nombre = arrayLog[0];
-        }
+    guardaLogin():void {
+        let fechaIng = new Date();
+        let usuarioLog = [];
+        usuarioLog.push({nombre: this.nombre, mail: this.mail, fechaIng: fechaIng.toLocaleDateString()})
+        localStorage.setItem("usuarioLog", JSON.stringify(usuarioLog));
+        this.estaLogueado = true;
     }
 
     validaUsuarioRegistrado(): boolean{
-        let listadoUsuarios = JSON.parse(localStorage.getItem('usuarios'));
         let resultado:boolean;
 
-        if(listadoUsuarios !== null)
+        if(JSON.parse(localStorage.getItem('usuarios')) !== null)
         {
+            let listadoUsuarios = JSON.parse(localStorage.getItem('usuarios'));
             for (let usuarios of listadoUsuarios)
             {
                 if(usuarios.nombre == this.nombre)
                 {
-                    resultado = false;
+                    resultado = true;
                 }
                 else
                 {
-                    resultado = true;
+                    resultado = false;
                 }
             }
         }

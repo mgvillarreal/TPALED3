@@ -21,12 +21,13 @@ export class RegistroComponent implements OnInit {
   validarContrasenas(): void {
     if(this.miUsuario.nombre !== undefined && this.miUsuario.mail !== undefined && this.miUsuario.pwd !== undefined && this.pwdConfirm !== undefined)
     {
-      if(this.miUsuario.validaUsuarioRegistrado())
+      if(!this.miUsuario.validaUsuarioRegistrado())
       {
         if(this.miUsuario.pwd == this.pwdConfirm)
         {
           this.miUsuario.registrar();
-          this.router.navigate(['login']);
+          this.miUsuario.guardaLogin();
+          this.router.navigate(['juegos']);
         }
         else
         {
