@@ -10,7 +10,7 @@ export class AdivinaNumeroComponent implements OnInit {
 
   numJug:number;
   numPc:number;
-  resultado!:number;
+  resultado?:string;
   intentos:number;
   jugadas = [];
   nombre:string;
@@ -25,32 +25,41 @@ export class AdivinaNumeroComponent implements OnInit {
   }
 
   jugar():void {
-    if(this.numJug <= 0 || this.numJug > 100) //valido si número ingresado por el jugador es válido
+    if(this.numJug == null)
     {
-      this.resultado = 0;
+      this.resultado = 'Intenta ingresando un número';
     }
     else
     {
-      if(this.numJug == this.numPc) //valido si los números son iguales
+      if(this.numJug <= 0 || this.numJug > 100) //valido si número ingresado por el jugador es válido
       {
-        this.intentos++;
-        this.resultado = 1;
-        this.guardarDatos();
+        this.resultado = 'El número está fuera de los límites, intenta entre 1 y 100';
       }
       else
       {
-        if(this.numJug > this.numPc) //valido si el número del jugador es más alto
+        if(this.numJug == this.numPc) //valido si los números son iguales
         {
-          this.resultado = 2;
           this.intentos++;
+          this.resultado = 'Ganaste!!';
+          this.guardarDatos();
         }
         else
         {
-          this.resultado = 3;
-          this.intentos++;
+          if(this.numJug > this.numPc) //valido si el número del jugador es más alto
+          {
+            this.resultado = 'Uh! Mejor intenta un número más bajo...';
+            this.intentos++;
+          }
+          else
+          {
+            this.resultado = 'Uh! Mejor intenta un número más alto...';
+            this.intentos++;
+          }
         }
       }
     }
+
+    
   }
 
   obtengoNombre():void{

@@ -12,22 +12,9 @@ export class Tateti {
             [{ocupada: false, ficha: "", posicion: [2,0]},{ocupada: false, ficha: "", posicion: [2,1]}, {ocupada: false, ficha: "", posicion: [2,2]}]];
             this.fichaHumano = fichaH;
         this.fichaComputadora = 'X';
-        this.turno = turno, //h humano, c computadora
+        this.turno = turno, 
         this.jugados = 0;
     }
-
-    // defineFichaPc():string{
-    //     let fichaPc:string;
-    //     if(this.fichaHumano == 'X')
-    //     {
-    //         fichaPc = 'O';
-    //     }
-    //     else
-    //     {
-    //         fichaPc = 'X';
-    //     }
-    //     return fichaPc;
-    // }
 
     setFichaJugadorvoid(ficha):void{
         this.fichaHumano = ficha;
@@ -35,15 +22,15 @@ export class Tateti {
     }
 
     reset(fichaH, turno){
-		this.tablero = 	[
-            [{ocupada: false, ficha: "", posicion: [0,0]},{ocupada: false, ficha: "", posicion: [0,1]}, {ocupada: false, ficha: "", posicion: [0,2]}],
-            [{ocupada: false, ficha: "", posicion: [1,0]},{ocupada: false, ficha: "", posicion: [1,1]}, {ocupada: false, ficha: "", posicion: [1,2]}],
-            [{ocupada: false, ficha: "", posicion: [2,0]},{ocupada: false, ficha: "", posicion: [2,1]}, {ocupada: false, ficha: "", posicion: [2,2]}]];
-        this.fichaHumano = fichaH;
-		this.fichaComputadora = 'X';
-		this.turno = turno;
-		this.jugados = 0;
-	}
+      this.tablero = 	[
+              [{ocupada: false, ficha: "", posicion: [0,0]},{ocupada: false, ficha: "", posicion: [0,1]}, {ocupada: false, ficha: "", posicion: [0,2]}],
+              [{ocupada: false, ficha: "", posicion: [1,0]},{ocupada: false, ficha: "", posicion: [1,1]}, {ocupada: false, ficha: "", posicion: [1,2]}],
+              [{ocupada: false, ficha: "", posicion: [2,0]},{ocupada: false, ficha: "", posicion: [2,1]}, {ocupada: false, ficha: "", posicion: [2,2]}]];
+          this.fichaHumano = fichaH;
+      this.fichaComputadora = 'X';
+      this.turno = turno;
+      this.jugados = 0;
+    }
 
     agregarFicha(tipoFicha, fila, columna):void{
         this.tablero[fila][columna].ocupada = true;
@@ -64,47 +51,34 @@ export class Tateti {
         }
     }
 
-    mostrarTablero():void{
-        console.log("------------------");
-        for (let i = 0; i < this.tablero.length; i++){
-          let f = this.tablero[i];
-          let c1 = f[0].ficha;
-          let c2 = f[1].ficha;
-          let c3 = f[2].ficha;
-          let txt = "|  " + c1 + "  |  " + c2 + "  |  " + c3 + "  |";
-          console.log(txt);
-	    }
-        console.log("------------------");
+    diagonales():any{
+      let res = [];
+      res.push([]);
+      res.push([]);
+      res[0].push(this.tablero[0][0]);
+      res[0].push(this.tablero[1][1]);
+      res[0].push(this.tablero[2][2]);
+      res[1].push(this.tablero[0][2]);
+      res[1].push(this.tablero[1][1]);
+      res[1].push(this.tablero[2][0]);
+      return res;
     }
 	
-	diagonales():any{
-	  let res = [];
-	  res.push([]);
-	  res.push([]);
-	  res[0].push(this.tablero[0][0]);
-	  res[0].push(this.tablero[1][1]);
-	  res[0].push(this.tablero[2][2]);
-	  res[1].push(this.tablero[0][2]);
-	  res[1].push(this.tablero[1][1]);
-	  res[1].push(this.tablero[2][0]);
-	  return res;
-	}
+    columna(n):any{
+      let res = [];
+      for (var f of this.tablero){
+        res.push(f[n]);
+      }
+      return res;
+    }
 	
-	columna(n):any{
-	  let res = [];
-	  for (var f of this.tablero){
-	    res.push(f[n]);
-	  }
-	  return res;
-	}
-	
-	columnas():any{
-	  let res = [];
-	  res.push(this.columna(0));
-	  res.push(this.columna(1));
-	  res.push(this.columna(2));	  
-	  return res;
-	}
+    columnas():any{
+      let res = [];
+      res.push(this.columna(0));
+      res.push(this.columna(1));
+      res.push(this.columna(2));	  
+      return res;
+    }
 
     estaTerminado():any{
         return this.estaLleno() || this.hay3EnLinea();
@@ -112,7 +86,7 @@ export class Tateti {
 
     estaLleno():any{
 		return this.jugados >= 9;
-	}
+	  }
 
     hay3EnLinea():boolean{
 		let lineas = this.columnas().concat(this.tablero).concat(this.diagonales());
@@ -122,13 +96,13 @@ export class Tateti {
 			}
 		}
 		return false;
-	}
+	  }
 
-    celdasVaciasDeLineasConDosOcupadas(ficha):any{ //devuelve una lista de posiciones de celdas vacías que están en líneas con dos celdas ocupadas
+    celdasVaciasDeLineasConDosOcupadas(ficha):any{ 
     	let lineas = this.columnas().concat(this.tablero).concat(this.diagonales());
     	let res = [];
     	for (let linea of lineas){
-    		let tiene = this.tieneUnaSolaDesocupada(linea, ficha); //espero un array vacío o uno no vacío con dos elementos correspondientes a una posición de celda del tablero
+    		let tiene = this.tieneUnaSolaDesocupada(linea, ficha); 
     		if (tiene.length !== 0){
     			res.push(tiene);
     		}
@@ -145,9 +119,8 @@ export class Tateti {
     				count++;
     			}
     		}
-            else{
-    			
-    			posicion = celda.posicion; //guardar la celda desocupada
+        else{
+    			posicion = celda.posicion; 
     		}
     	}
     	if (count === 2){
@@ -177,20 +150,19 @@ export class Tateti {
 			}
 		}
 		return count === 3;
-	}
+	  }
 
-    desocupada():any{ //busca y devuelve una celda desocupada
-        let posicion = []; //un par ordenado de fila, columna
+    desocupada():any{ 
+        let posicion = []; 
         for (var i = 0; i < this.tablero.length; i++){
           let f = this.tablero[i];	    
           for (let j = 0; j < f.length; j++)
           {
             if(!this.estaOcupada(i,j)){
                 posicion = [i, j];
-                return posicion; //devuelve la primera que encuentra
+                return posicion; 
             }
           }
         }
     }
-	
 }

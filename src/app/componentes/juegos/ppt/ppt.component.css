@@ -21,3 +21,9 @@
     height: 100px;
     width: 100px;
 }
+
+.titulo {
+    color: #172a74;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 550;
+}

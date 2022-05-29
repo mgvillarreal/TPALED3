@@ -49,15 +49,30 @@
     border-right: #fff;
 }
 
-/* clear para los floats */
-
 #tablero:after {
     display: block;
     content: "";
     clear: both;
 }
 
-.marcador {
-    display: none;
-    margin-left: 30px;
+.btn-primary-blue {
+    border: 1px solid #172a74 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #172a74
+}
+
+.btn-primary-blue:hover {
+    font-size: large;
+}
+
+.texto-negritas{
+    font-weight: 500;
+    font-size: large;
+}
+
+.titulo {
+    color: #172a74;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 550;
 }

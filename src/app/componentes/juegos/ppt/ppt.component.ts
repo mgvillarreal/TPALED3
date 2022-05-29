@@ -12,6 +12,7 @@ export class PptComponent implements OnInit {
   resultado:string = '';
   puntajePc:number = 0;
   puntajeJug:number = 0;
+  ganador:boolean = false;
 
   constructor() {
    
@@ -37,7 +38,6 @@ export class PptComponent implements OnInit {
     }
   }
  
-
   jugar(): void{
     this.opcionPc();
 
@@ -106,6 +106,7 @@ export class PptComponent implements OnInit {
   validarResultado():void{
     if(this.puntajeJug == 3 || this.puntajePc == 3)
     {
+      this.ganador = true;
       if(this.puntajeJug > this.puntajePc)
       {
         this.resultado = '¡Ganaste la partida!';
@@ -121,6 +122,7 @@ export class PptComponent implements OnInit {
     this.resultado = '';
     this.puntajePc = 0;
     this.puntajeJug = 0;
+    this.ganador = false;
   }
   
   ngOnInit(): void {
