@@ -14,6 +14,7 @@ export class ListadoResultadosComponent implements OnInit {
     if(localStorage.getItem('listadoGanadores') !== null) //valido que el array listado ganadores exista
     {
       this.listadoGanadores = JSON.parse(localStorage.getItem('listadoGanadores')); //obtengo el array que existe
+      console.log('Ganadores: ', this.listadoGanadores);
     }
   }
 

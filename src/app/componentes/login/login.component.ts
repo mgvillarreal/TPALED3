@@ -53,11 +53,6 @@ export class LoginComponent implements OnInit {
           this.msjValidacion = "Usuario no existe. Intenta registrarte.";
         }
         
-        // if(mailEncontrado!=1)
-        // {
-        //   this.resultado = false;
-        //   this.msjValidacion = "Usuario no existe.";
-        // }
       }
     }
     else
@@ -69,8 +64,9 @@ export class LoginComponent implements OnInit {
   }
 
   guardaLogin():void {
-    var usuarioLog = [];
-    usuarioLog.push({nombre: this.nombreOb, mail: this.miUsuario.mail})
+    let fechaIng = new Date();
+    let usuarioLog = [];
+    usuarioLog.push({nombre: this.nombreOb, mail: this.miUsuario.mail, fechaIng: fechaIng.toLocaleDateString()})
     localStorage.setItem("usuarioLog", JSON.stringify(usuarioLog));
     this.miUsuario.validaLogeo();
   }

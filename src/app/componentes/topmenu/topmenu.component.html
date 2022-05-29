@@ -29,11 +29,26 @@
                                 </label>
                                 <input class="form-control search-field" type="search" name="search" id="search-field">
                             </div-->
-                        </form><span class="navbar-text">
-                        <a class="login" routerLink="/login">Ingreso</a></span>
-                        <div>
-                            <a class="btn btn-light action-button" role="button" routerLink="/registro">Registro</a> 
+                        </form>
+
+                        <div class="d-flex" *ngIf="estaLogueado==false">
+                            <span class="navbar-text">
+                                <a class="login" routerLink="/login">Ingreso</a>
+                            </span>
+                            <div>
+                                <a class="btn btn-light action-button" role="button" routerLink="/registro">Registro</a> 
+                            </div>
                         </div>
+
+                        <div class="d-flex" *ngIf="estaLogueado==true">
+                            <span class="navbar-text">
+                                <a class="login" role="button" (click)="desloguear()">Log Out</a>
+                            </span>
+                            <div *ngFor="let usuario of arrayUsuario; let i = index">
+                                <div class="btn btn-light action-button">{{usuario.nombre}}</div> 
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </nav>

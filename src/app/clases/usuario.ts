@@ -2,7 +2,7 @@ export class Usuario {
     mail:string; //defino la variable y el tipo
     pwd:string;
     nombre:string;
-    resultadoLog:boolean=false;
+    estaLogueado:boolean=false;
     resultadoReg:boolean=true;
 
     constructor(){   
@@ -26,7 +26,7 @@ export class Usuario {
     validaLogeo(): void{
         if(typeof localStorage.getItem('usuarioLog') !== null)
         {
-          this.resultadoLog = true;
+          this.estaLogueado = true;
           let arrayLog = JSON.parse(localStorage.getItem('usuarios'));
           this.nombre = arrayLog[0];
         }

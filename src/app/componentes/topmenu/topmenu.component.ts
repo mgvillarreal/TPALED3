@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/clases/usuario';
 
 @Component({
   selector: 'app-topmenu',
@@ -7,7 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopmenuComponent implements OnInit {
 
-  constructor() { }
+  estaLogueado:boolean=false;
+  arrayUsuario = [];
+
+  constructor() {
+    if(localStorage.getItem('usuarioLog') !== null)
+    {
+      this.estaLogueado = true;
+      this.arrayUsuario = JSON.parse(localStorage.getItem('usuarioLog'));
+    }
+  }
+
+  desloguear():void{
+    this.estaLogueado = false;
+    this.arrayUsuario.pop();
+    localStorage.setItem("usuarioLog", JSON.stringify(this.arrayUsuario));
+  }
 
   ngOnInit(): void {
   }
