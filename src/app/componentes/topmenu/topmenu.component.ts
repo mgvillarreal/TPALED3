@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/clases/usuario';
 
 @Component({
@@ -11,7 +12,7 @@ export class TopmenuComponent implements OnInit {
   estaLogueado:boolean=false;
   arrayUsuario = [];
 
-  constructor() {
+  constructor(private router: Router) {
     if(localStorage.getItem('usuarioLog') !== null)
     {
       this.estaLogueado = true;
@@ -24,6 +25,7 @@ export class TopmenuComponent implements OnInit {
     this.estaLogueado = false;
     this.arrayUsuario.pop();
     localStorage.setItem("usuarioLog", JSON.stringify(this.arrayUsuario));
+    this.router.navigate(['bienvenida']);
   }
 
   ngOnInit(): void {

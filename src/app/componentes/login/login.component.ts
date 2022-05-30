@@ -1,3 +1,4 @@
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/clases/usuario';
 import { Router, NavigationEnd } from '@angular/router';
@@ -9,37 +10,40 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  public forma: FormGroup; 
+
   miUsuario:Usuario; //aca se define la clase
   nombreOb:string;
   mailOb:string;
   resultado:boolean = true;
   msjValidacion?:string;
   
-  constructor(private router: Router) { 
+  constructor(private router: Router, private fb: FormBuilder) { 
     this.miUsuario = new Usuario(); //esto se instancia cuando el constructor se dispara
   }
 
   ingresar(): void {
+    console.info('prueba: ', this.forma.value['email'])
+
     let listadoUsuarios:any;
     let mailEncontrado = 0;
-    console.info('mail: ', this.miUsuario.mail);
 
     if(localStorage.getItem('usuarios') !== null) 
     {
-      listadoUsuarios = JSON.parse(localStorage.getItem('usuarios')); 
-    }
+      listadoUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+      console.info('Listado que obtiene: ', listadoUsuarios);
 
-    if(this.miUsuario.mail != undefined && this.miUsuario.pwd != undefined)
-    {
       for (let usuario of listadoUsuarios)
       {
-        if(usuario.mail === this.miUsuario.mail)
+        if(usuario.mail === this.forma.value['email'])
         {
-          if(usuario.pwd === this.miUsuario.pwd)
+          if(usuario.pwd === this.forma.value['contrasena'])
           {
             this.router.navigate(['juegos']);
             this.nombreOb = usuario.nombre;
+            console.info('Nombre obtenido: ', this.nombreOb);
             this.mailOb = usuario.mail;
+            console.info('Mail obtenido: ', this.mailOb);
             this.guardaLoginIng();
             mailEncontrado = 1;
           }
@@ -54,15 +58,8 @@ export class LoginComponent implements OnInit {
           this.resultado = false;
           this.msjValidacion = "Usuario no existe. Intenta registrarte.";
         }
-        
       }
     }
-    else
-    {
-      this.resultado = false;
-      this.msjValidacion = "Todos los campos son requeridos.";
-    }
-
   }
 
   guardaLoginIng():void {
@@ -87,6 +84,10 @@ export class LoginComponent implements OnInit {
   }*/
 
   ngOnInit(): void {
+    this.forma = this.fb.group({ //se toma del constructor que tiene inyectado el servicio que esta importado
+      'email': ['', [Validators.required]],
+      'contrasena': ['', Validators.required]
+    });
   }
 
 }
