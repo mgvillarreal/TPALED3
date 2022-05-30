@@ -25,7 +25,7 @@ export class PptComponent implements OnInit {
   }
 
   opcionPc(): void{
-    let opcionPc = Math.floor(Math.random() * 2 + 0);
+    let opcionPc = Math.floor(Math.random() * (0 - 3) * -1);
     
     switch(opcionPc){
       case 0:
@@ -111,6 +111,7 @@ export class PptComponent implements OnInit {
       if(this.puntajeJug > this.puntajePc)
       {
         this.resultado = '¡Ganaste la partida!';
+        this.guardarDatos();
       }
       else
       {
@@ -137,19 +138,28 @@ export class PptComponent implements OnInit {
 
   guardarDatos():void{
     this.obtengoNombre();
-    let listadoGanadores = [];
+    let listadoGanadoresPPT = [];
+    let score:number = 0;
 
-    if(localStorage.getItem('listadoGanadores') !== null) //valido que el array listado ganadores exista
+    if(localStorage.getItem('listadoGanadoresPPT') !== null) //valido que el array listado ganadores exista
     {
-      listadoGanadores = JSON.parse(localStorage.getItem('listadoGanadores')); //obtengo el array que existe
+      listadoGanadoresPPT = JSON.parse(localStorage.getItem('listadoGanadoresPPT')); //obtengo el array que existe
+
+      for (let ganador of listadoGanadoresPPT)
+      {
+        score = ganador.ganados;
+      }
+
     }
     else
     {
-      listadoGanadores = []; //creo el array
+      listadoGanadoresPPT = []; //creo el array
     }
-    listadoGanadores.push({juego: "PPT", nombre: this.nombre, /*intentos: this.intentos*/}); //agrego el objeto al array
-    localStorage.setItem("listadoGanadores", JSON.stringify(listadoGanadores)); //guardo el array actualizado
-    console.info("La info del listado es ", listadoGanadores);
+    let fecha = new Date();
+
+    listadoGanadoresPPT.push({nombre: this.nombre, ganados: score+1, fecha: fecha.toLocaleDateString()}); //agrego el objeto al array
+    localStorage.setItem("listadoGanadoresPPT", JSON.stringify(listadoGanadoresPPT)); //guardo el array actualizado
+    console.info("La info del listado es ", listadoGanadoresPPT);
   }
   
   ngOnInit(): void {
