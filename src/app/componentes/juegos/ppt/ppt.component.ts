@@ -13,6 +13,7 @@ export class PptComponent implements OnInit {
   puntajePc:number = 0;
   puntajeJug:number = 0;
   ganador:boolean = false;
+  nombre:string;
 
   constructor() {
    
@@ -124,8 +125,35 @@ export class PptComponent implements OnInit {
     this.puntajeJug = 0;
     this.ganador = false;
   }
+
+  obtengoNombre():void{
+    let usurioLogeado = JSON.parse(localStorage.getItem('usuarioLog'));
+
+    for (let i in usurioLogeado)
+    {
+      this.nombre = usurioLogeado[i]['nombre'];
+    }
+  }
+
+  guardarDatos():void{
+    this.obtengoNombre();
+    let listadoGanadores = [];
+
+    if(localStorage.getItem('listadoGanadores') !== null) //valido que el array listado ganadores exista
+    {
+      listadoGanadores = JSON.parse(localStorage.getItem('listadoGanadores')); //obtengo el array que existe
+    }
+    else
+    {
+      listadoGanadores = []; //creo el array
+    }
+    listadoGanadores.push({juego: "PPT", nombre: this.nombre, /*intentos: this.intentos*/}); //agrego el objeto al array
+    localStorage.setItem("listadoGanadores", JSON.stringify(listadoGanadores)); //guardo el array actualizado
+    console.info("La info del listado es ", listadoGanadores);
+  }
   
   ngOnInit(): void {
+    
   }
 
 }
