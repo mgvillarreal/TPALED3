@@ -1,0 +1,50 @@
+<div class="mt-3">
+    <h2 class="text-center titulo">¿Mayor o Menor?</h2>
+
+    <p>Tendrás te acertar si el número de la izquierda es mayor, menor o igual al de la derecha. Tienes 6 rondas, contaremos tus aciertos y desaciertos...</p>
+    <br>
+    
+    <div class="mt-4 mb-2 d-flex justify-content-center" *ngIf="rondas!=0">
+        <p class="mr-2">Ronda: <span class="negrita">{{rondas}}</span> </p>
+    </div>
+
+    <div class="mt-4 mb-2 d-flex justify-content-center" *ngIf="acierto!=0 || desacierto!=0">
+        <div>
+            <p class="mr-2">Aciertos: <span class="negrita">{{acierto}}</span> </p>
+        </div>
+       <div>
+            <p class="mr-2">Desaciertos: <span class="negrita">{{desacierto}}</span> </p>
+       </div>
+    </div>
+    
+    <div class="grid-tablero text-center">
+        <div class="mt-2 d-flex justify-content-center">
+            <div class="numeros" name="num1"> {{num1}} </div>
+        </div>
+    
+        <div class="grid-botones text-center" *ngIf="terminoJuego==false">
+            <button class="btn btn-juego ml-1" (click)="opcion('menorQue')"><</button>
+            <button class="btn btn-juego ml-1" (click)="opcion('mayorQue')">></button>
+            <button class="btn btn-juego ml-1" (click)="opcion('igual')">=</button>
+        </div>
+
+        <div class="grid-botones text-center" *ngIf="terminoJuego==true">
+            <button class="btn btn-juego ml-1"><</button>
+            <button class="btn btn-juego ml-1">></button>
+            <button class="btn btn-juego ml-1">=</button>
+        </div>
+    
+        <div class="mt-2 d-flex justify-content-center">
+            <div class="numeros" name="num2"> {{num2}} </div>
+        </div>
+    </div>
+
+    <div class="mt-4 mb-1 text-center">
+        <p class="texto-negritas" *ngIf="resultado!=''"> {{resultado}} </p>    
+    </div>
+
+    <div class="mt-2 d-flex justify-content-center">
+        <button class="btn btn-primary-blue ml-1" (click)="resetear()">Reset</button>
+        <button class="btn btn-primary-blue ml-1" routerLink="/juegos">Salir</button>
+    </div>
+</div>

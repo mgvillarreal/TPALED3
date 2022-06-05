@@ -17,6 +17,7 @@ import { AdivinaNumeroComponent } from './componentes/juegos/adivina-numero/adiv
 import { ListadoResultadosComponent } from './componentes/juegos/listado-resultados/listado-resultados.component';
 import { MenuJuegosComponent } from './componentes/menu-juegos/menu-juegos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MayorMenorComponent } from './componentes/juegos/mayor-menor/mayor-menor.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     PptComponent,
     AdivinaNumeroComponent,
     ListadoResultadosComponent,
-    MenuJuegosComponent
+    MenuJuegosComponent,
+    MayorMenorComponent
   ],
   imports: [
     BrowserModule,

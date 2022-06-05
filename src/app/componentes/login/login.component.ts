@@ -23,8 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar(): void {
-    console.info('prueba: ', this.forma.value['email'])
-
     let listadoUsuarios:any;
     let mailEncontrado = 0;
 
@@ -55,8 +53,11 @@ export class LoginComponent implements OnInit {
         }
         else
         {
-          this.resultado = false;
-          this.msjValidacion = "Usuario no existe. Intenta registrarte.";
+          if(mailEncontrado=0)
+          {
+            this.resultado = false;
+            this.msjValidacion = "Usuario no existe. Intenta registrarte.";
+          }
         }
       }
     }

@@ -15,6 +15,10 @@ export class TatetiComponent implements OnInit {
   IDS = [['ceroCero', 'ceroUno', 'ceroDos'], ['unoCero', 'unoUno', 'unoDos'], ['dosCero', 'dosUno', 'dosDos']];
   estMensaje:boolean = false;
   mensaje?:string;
+  nombre:string;
+  empateJuego:number = 0;
+  ganaJuego:number = 0;
+  pierdeJuego:number = 0;
 
   constructor() { 
     
@@ -39,6 +43,8 @@ export class TatetiComponent implements OnInit {
           console.log("Jugador: " + this.ganadosHumano + ". Computadora: " + this.ganadosComputadora + ". Empates: " + this.empates);
           this.estMensaje = true;
           this.mensaje = 'Empate!';
+          this.empateJuego++;
+          this.guardarDatos();
         }
         else
         {
@@ -96,6 +102,8 @@ export class TatetiComponent implements OnInit {
         console.log("Humano: " + this.ganadosHumano + ". Computadora: " + this.ganadosComputadora + ". Empates: " + this.empates);
         this.estMensaje = true;
         this.mensaje = 'Ganó Computadora';
+        this.pierdeJuego++;
+        this.guardarDatos();
       }
       else
       {
@@ -151,6 +159,45 @@ export class TatetiComponent implements OnInit {
     this.ganadosHumano = 0;
     this.estMensaje = false;
     this.mensaje = '';
+  }
+
+  obtengoNombre():void{
+    let usurioLogeado = JSON.parse(localStorage.getItem('usuarioLog'));
+
+    for (let i in usurioLogeado)
+    {
+      this.nombre = usurioLogeado[i]['nombre'];
+    }
+  }
+
+  guardarDatos():void{
+    this.obtengoNombre();
+    let listadoGanadoresTTT = [];
+    let score:number = 0;
+    let empates:number = 0;
+    let perdidas:number = 0;
+
+    if(localStorage.getItem('listadoGanadoresTTT') !== null) //valido que el array listado ganadores exista
+    {
+      listadoGanadoresTTT = JSON.parse(localStorage.getItem('listadoGanadoresTTT')); //obtengo el array que existe
+
+      for (let ganador of listadoGanadoresTTT)
+      {
+        score = ganador.ganados + this.ganaJuego;
+        empates = ganador.empates + this.empateJuego;
+        perdidas = ganador.perdidos + this.pierdeJuego;
+      }
+
+    }
+    else
+    {
+      listadoGanadoresTTT = []; //creo el array
+    }
+    let fecha = new Date();
+
+    listadoGanadoresTTT.push({nombre: this.nombre, ganados: score, empates: empates, perdidos: perdidas, fecha: fecha.toLocaleDateString()}); //agrego el objeto al array
+    localStorage.setItem("listadoGanadoresTTT", JSON.stringify(listadoGanadoresTTT)); //guardo el array actualizado
+    console.info("La info del listado es ", listadoGanadoresTTT);
   }
 
   ngOnInit(): void {
