@@ -1,0 +1,42 @@
+.btn-primary-blue {
+    border: 1px solid #172a74 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #172a74
+}
+
+.btn-primary-blue:hover {
+    font-size: large;
+}
+
+.titulo {
+    color: #172a74;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 550;
+}
+
+.texto-negritas{
+    font-weight: bold;
+}
+
+.btn-juego {
+    border: 3px solid #172a74 !important;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #172a74;
+    height: 40px;
+    background-color: #fff;
+}
+
+.btn-juego:hover {
+    font-size: large;
+}
+
+.grid-dados {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+}
+
+.texto-grande{
+    font-size: larger;
+}

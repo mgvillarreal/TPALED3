@@ -14,6 +14,8 @@ import { PptComponent } from './componentes/juegos/ppt/ppt.component';
 import { AdivinaNumeroComponent } from './componentes/juegos/adivina-numero/adivina-numero.component';
 import { ListadoResultadosComponent } from './componentes/juegos/listado-resultados/listado-resultados.component';
 import { MayorMenorComponent } from './componentes/juegos/mayor-menor/mayor-menor.component';
+import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
+import { DadosComponent } from './componentes/juegos/dados/dados.component';
 
 
 const routes: Routes = [ //acá es importante el orden del array
@@ -34,6 +36,8 @@ const routes: Routes = [ //acá es importante el orden del array
       { path: 'ppt', component: PptComponent },
       { path: 'adivina-numero', component: AdivinaNumeroComponent },
       { path: 'mayor-menor', component: MayorMenorComponent },
+      { path: 'ahorcado', component: AhorcadoComponent },
+      { path: 'dados', component: DadosComponent },
       { path: 'listado-resultados', component: ListadoResultadosComponent }
     ] 
   },

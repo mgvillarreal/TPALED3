@@ -18,6 +18,8 @@ import { ListadoResultadosComponent } from './componentes/juegos/listado-resulta
 import { MenuJuegosComponent } from './componentes/menu-juegos/menu-juegos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MayorMenorComponent } from './componentes/juegos/mayor-menor/mayor-menor.component';
+import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
+import { DadosComponent } from './componentes/juegos/dados/dados.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { MayorMenorComponent } from './componentes/juegos/mayor-menor/mayor-meno
     AdivinaNumeroComponent,
     ListadoResultadosComponent,
     MenuJuegosComponent,
-    MayorMenorComponent
+    MayorMenorComponent,
+    AhorcadoComponent,
+    DadosComponent
   ],
   imports: [
     BrowserModule,

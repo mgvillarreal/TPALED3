@@ -1,8 +1,8 @@
 <app-topmenu></app-topmenu>
 
-<div class="container mt-5">
+<div class="container mt-3">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-7">
+        <div class="col-md-9">
             <div class="card p-3 py-4">
                 <div class="text-center">
                     <img [src]="datosPerfil.avatar_url" alt="foto perfil" width="150" class="rounded-circle">
@@ -10,9 +10,18 @@
                 <div class="text-center mt-3">
                     <h5 class="mt-2 mb-0">{{datosPerfil.name}}</h5>
                     <span>Estudiante de Análisis de Sistemas</span><br>
-                    <span>Instituto Tecnológico Beltrán | 3ro 2da</span>
-                    <div class="px-4 mt-1">
-                        <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    <span>Instituto Tecnológico Beltrán | 3ro 2da</span><br>
+                    <div>Followers Github: {{datosPerfil.followers}} - Following Github: {{datosPerfil.following}} </div>
+                    <div class="px-4 mt-3">
+                        <h6>Juego Apuesta con Dados</h6>
+                        <p class="fonts">El jugador deberá ingresar una cantidad inicial de dinero para empezar a jugar. De dicho monto, apostará las cantidades que quiera, siempre y cuando su saldo se lo permita.<br>
+                            La computadora lanzará tres dados:<br>
+                            Si en los tres dados sale el mismo número y éste es 6, su apuesta se multiplica por 5.<br>
+                            Si en los tres dados sale el mismo número pero es cualquier otro, su apuesta se multiplica por 3.<br>
+                            Si solo en dos dados sale el mismo número, su apuesta se multiplica por 2.<br>
+                            En caso de que ningún dado se repita, el dinero apostado se pierde.<br>
+                            El juego acaba cuando el jugador termina la partida, tomando su ganancia o cuando su saldo llega a $0.
+                        </p>
                     </div>
                     <ul class="social-list">
                         <li><a href="https://www.linkedin.com/in/mar%C3%ADa-gabriela-villarreal-a405b6194/"><i class="fa fa-linkedin"></i></a></li>

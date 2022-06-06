@@ -7,7 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JuegosComponent implements OnInit {
 
-  constructor() { }
+  juegoSeleccionado:boolean = false;
+  
+  constructor() { 
+    this.muestraLog;
+  }
+
+  seleccionaJuego():void{
+    this.juegoSeleccionado = true;
+    this.muestraLog;
+  }
+
+  muestraLog():void{
+    console.info("a ver: ", this.juegoSeleccionado);
+  }
 
   ngOnInit(): void {
   }
