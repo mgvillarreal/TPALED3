@@ -15,21 +15,22 @@ export class LoginComponent implements OnInit {
   miUsuario:Usuario; //aca se define la clase
   nombreOb:string;
   mailOb:string;
-  resultado:boolean = true;
-  msjValidacion?:string;
+  msjValidacion:string = '';
   
   constructor(private router: Router, private fb: FormBuilder) { 
     this.miUsuario = new Usuario(); //esto se instancia cuando el constructor se dispara
   }
 
   ingresar(): void {
+    this.miUsuario.mail = this.forma.value['email'];
+    this.miUsuario.pwd = this.forma.value['contrasena'];
+
     let listadoUsuarios:any;
     let mailEncontrado = 0;
 
     if(localStorage.getItem('usuarios') !== null) 
     {
       listadoUsuarios = JSON.parse(localStorage.getItem('usuarios'));
-      console.info('Listado que obtiene: ', listadoUsuarios);
 
       for (let usuario of listadoUsuarios)
       {
@@ -39,25 +40,18 @@ export class LoginComponent implements OnInit {
           {
             this.router.navigate(['juegos']);
             this.nombreOb = usuario.nombre;
-            console.info('Nombre obtenido: ', this.nombreOb);
             this.mailOb = usuario.mail;
-            console.info('Mail obtenido: ', this.mailOb);
             this.guardaLoginIng();
             mailEncontrado = 1;
           }
           else
           {
-            this.resultado = false;
             this.msjValidacion = "Contraseña incorrecta. Intenta nuevamente.";
           }
         }
         else
         {
-          if(mailEncontrado=0)
-          {
-            this.resultado = false;
-            this.msjValidacion = "Usuario no existe. Intenta registrarte.";
-          }
+          this.msjValidacion = "Usuario no existe. Intenta registrarte.";
         }
       }
     }
@@ -86,7 +80,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.forma = this.fb.group({ //se toma del constructor que tiene inyectado el servicio que esta importado
-      'email': ['', [Validators.required]],
+      'email': ['', [Validators.required, Validators.email]],
       'contrasena': ['', Validators.required]
     });
   }
