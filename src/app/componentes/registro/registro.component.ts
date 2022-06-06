@@ -24,7 +24,7 @@ export class RegistroComponent implements OnInit {
     this.miUsuario.mail = this.forma.value['email'];
     this.miUsuario.pwd = this.forma.value['contrasena'];
 
-    if(!this.miUsuario.validaUsuarioRegistrado())
+    if(this.miUsuario.validaUsuarioRegistrado())
     {
       this.miUsuario.registrar();
       this.miUsuario.guardaLogin();
@@ -33,11 +33,7 @@ export class RegistroComponent implements OnInit {
     }
     else
     {
-      if(this.usuarioEncontrado=0)
-      {
-        this.resultado = false;
-        this.msjValidacion = 'El usuario ya existe. Intenta iniciando sesión.';
-      }
+      this.msjValidacion = 'El usuario ya existe. Intenta iniciando sesión.';
     }
     
   }

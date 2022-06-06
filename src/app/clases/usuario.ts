@@ -1,3 +1,5 @@
+import { fakeAsync } from "@angular/core/testing";
+
 export class Usuario {
     mail:string; //defino la variable y el tipo
     pwd:string;
@@ -34,30 +36,19 @@ export class Usuario {
     }
 
     validaUsuarioRegistrado(): boolean{
-        let resultado:boolean;
 
         if(JSON.parse(localStorage.getItem('usuarios')) !== null)
         {
-            console.log('llego a validar 1');
             let listadoUsuarios = JSON.parse(localStorage.getItem('usuarios'));
             for (let usuarios of listadoUsuarios)
             {
                 if(usuarios.mail == this.mail)
                 {
-                    resultado = true;
-                }
-                else
-                {
-                    resultado = false;
-                }
+                    return false;
+                }   
             }
         }
-        else
-        {
-            console.log('llego a validar 2');
-            resultado = false;
-        }
 
-        return resultado;
+        return true;
     }
 }
