@@ -10,13 +10,15 @@ export class Usuario {
 
     registrar(): void {
         let usuarios = [];
-
+        console.log('llego a registrar');
         if(localStorage.getItem('usuarios') !== null) //valido que el array usuarios exista
         {
+            console.log('llego a registrar 1 ');
             usuarios = JSON.parse(localStorage.getItem('usuarios')); //obtengo el array que existe
         }
         else
         {
+            console.log('llego a registrar 2');
             usuarios = []; //creo el array
         }
         usuarios.push({nombre: this.nombre, mail: this.mail, pwd: this.pwd}); //agrego el objeto al array
@@ -36,10 +38,11 @@ export class Usuario {
 
         if(JSON.parse(localStorage.getItem('usuarios')) !== null)
         {
+            console.log('llego a validar 1');
             let listadoUsuarios = JSON.parse(localStorage.getItem('usuarios'));
             for (let usuarios of listadoUsuarios)
             {
-                if(usuarios.nombre == this.nombre)
+                if(usuarios.mail == this.mail)
                 {
                     resultado = true;
                 }
@@ -51,7 +54,8 @@ export class Usuario {
         }
         else
         {
-            resultado = true;
+            console.log('llego a validar 2');
+            resultado = false;
         }
 
         return resultado;
