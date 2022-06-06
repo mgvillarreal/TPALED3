@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/clases/usuario';
 
 @Component({
   selector: 'app-juegos',
@@ -6,23 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./juegos.component.css']
 })
 export class JuegosComponent implements OnInit {
-
-  juegoSeleccionado:boolean = false;
   
-  constructor() { 
-    this.muestraLog;
-  }
-
-  seleccionaJuego():void{
-    this.juegoSeleccionado = true;
-    this.muestraLog;
-  }
-
-  muestraLog():void{
-    console.info("a ver: ", this.juegoSeleccionado);
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
-
 }
