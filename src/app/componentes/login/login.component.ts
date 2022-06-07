@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   nombreOb:string;
   mailOb:string;
   msjValidacion:string = '';
+  mailJugador:string;
+  pwdJugador:string;
   
   constructor(private router: Router, private fb: FormBuilder) { 
     this.miUsuario = new Usuario(); //esto se instancia cuando el constructor se dispara
@@ -80,15 +82,8 @@ export class LoginComponent implements OnInit {
 
   completaDatos(jugador: any):void{
     console.log('datos en login: ', jugador);
-    document.getElementById("email").textContent = jugador.mail;
-    console.log('Mail del Jug: ', jugador.mail);
-    let inputMail = document.getElementById("email");
-    console.log('input: ', inputMail);
-    inputMail.textContent = jugador.mail;
-    console.log('Pwd del Jug: ', jugador.pwd);
-    let inputPwd = document.getElementById("pass");
-    console.log('input: ', inputPwd);
-    inputPwd.textContent = jugador.pwd;
+    this.mailJugador = jugador.mail;
+    this.pwdJugador = jugador.pwd;
   }
 
   ngOnInit(): void {

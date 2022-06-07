@@ -18,7 +18,7 @@
                     <span class="login100-form-title p-b-26"> Ingreso </span>
     
                     <div class="wrap-input100">
-                        <input class="input100" type="email" name="email" id="email" placeholder="Email" formControlName="email">
+                        <input class="input100" type="email" name="email" id="email" placeholder="Email" formControlName="email" [(ngModel)]="mailJugador">
                     </div>
                     <small  class="texto-validacion text-center" 
                     *ngIf="forma.controls['email'].errors?.['required'] && forma.controls['email'].touched">
@@ -30,12 +30,14 @@
                     </small>
     
                     <div class="wrap-input100">
-                        <input class="input100" type="password" name="pass" id="pass" placeholder="Contraseña" formControlName="contrasena">
+                        <input class="input100" type="password" name="pass" id="pass" placeholder="Contraseña" formControlName="contrasena" [(ngModel)]="pwdJugador">
                     </div>
                     <small class="texto-validacion text-center"
                     *ngIf="forma.controls['contrasena'].errors?.['required'] && forma.controls['contrasena'].touched">
                         La contraseña es requerida.
                     </small>
+
+                    <p id="prueba"> </p>
     
                     <div class="mt-4 mb-1 d-flex justify-content-center">
                         <p class="texto-validacion" *ngIf="msjValidacion!=''">{{msjValidacion}}</p>
