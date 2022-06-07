@@ -14,6 +14,8 @@ export class PptComponent implements OnInit {
   puntajeJug:number = 0;
   ganador:boolean = false;
   nombre:string;
+  ganados:number = 0;
+  perdidos:number = 0;
 
   constructor() {
    
@@ -111,12 +113,14 @@ export class PptComponent implements OnInit {
       if(this.puntajeJug > this.puntajePc)
       {
         this.resultado = '¡Ganaste la partida!';
-        this.guardarDatos();
+        this.ganados++;
       }
       else
       {
         this.resultado = 'Perdiste la partida :(';
+        this.perdidos++;
       }
+      this.guardarDatos();
     }
   }
 
@@ -139,25 +143,18 @@ export class PptComponent implements OnInit {
   guardarDatos():void{
     this.obtengoNombre();
     let listadoGanadoresPPT = [];
-    let score:number = 0;
+    let fecha = new Date();
 
     if(localStorage.getItem('listadoGanadoresPPT') !== null) //valido que el array listado ganadores exista
     {
       listadoGanadoresPPT = JSON.parse(localStorage.getItem('listadoGanadoresPPT')); //obtengo el array que existe
-
-      for (let ganador of listadoGanadoresPPT)
-      {
-        score = ganador.ganados;
-      }
-
     }
     else
     {
       listadoGanadoresPPT = []; //creo el array
     }
-    let fecha = new Date();
-
-    listadoGanadoresPPT.push({nombre: this.nombre, ganados: score+1, fecha: fecha.toLocaleDateString()}); //agrego el objeto al array
+    
+    listadoGanadoresPPT.push({nombre: this.nombre, ganados: this.ganados, perdidos: this.perdidos, fecha: fecha.toLocaleDateString()}); //agrego el objeto al array
     localStorage.setItem("listadoGanadoresPPT", JSON.stringify(listadoGanadoresPPT)); //guardo el array actualizado
     console.info("La info del listado es ", listadoGanadoresPPT);
   }
