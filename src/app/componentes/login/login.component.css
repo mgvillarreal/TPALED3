@@ -366,3 +366,10 @@ iframe {
     font-size: small;
     text-align: center !important;
 }
+
+.grid-contenedores{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    grid-gap: 40px;
+}

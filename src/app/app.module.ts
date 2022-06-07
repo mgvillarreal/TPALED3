@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MayorMenorComponent } from './componentes/juegos/mayor-menor/mayor-menor.component';
 import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
 import { DadosComponent } from './componentes/juegos/dados/dados.component';
+import { ListadoUsuariosComponent } from './componentes/login/listado-usuarios/listado-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DadosComponent } from './componentes/juegos/dados/dados.component';
     MenuJuegosComponent,
     MayorMenorComponent,
     AhorcadoComponent,
-    DadosComponent
+    DadosComponent,
+    ListadoUsuariosComponent
   ],
   imports: [
     BrowserModule,

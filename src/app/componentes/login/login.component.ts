@@ -78,11 +78,25 @@ export class LoginComponent implements OnInit {
     }
   }*/
 
+  completaDatos(jugador: any):void{
+    console.log('datos en login: ', jugador);
+    document.getElementById("email").textContent = jugador.mail;
+    console.log('Mail del Jug: ', jugador.mail);
+    let inputMail = document.getElementById("email");
+    console.log('input: ', inputMail);
+    inputMail.textContent = jugador.mail;
+    console.log('Pwd del Jug: ', jugador.pwd);
+    let inputPwd = document.getElementById("pass");
+    console.log('input: ', inputPwd);
+    inputPwd.textContent = jugador.pwd;
+  }
+
   ngOnInit(): void {
     this.forma = this.fb.group({ //se toma del constructor que tiene inyectado el servicio que esta importado
       'email': ['', [Validators.required, Validators.email]],
       'contrasena': ['', Validators.required]
     });
+
   }
 
 }

@@ -16,20 +16,20 @@ import { ListadoResultadosComponent } from './componentes/juegos/listado-resulta
 import { MayorMenorComponent } from './componentes/juegos/mayor-menor/mayor-menor.component';
 import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
 import { DadosComponent } from './componentes/juegos/dados/dados.component';
+import { ListadoUsuariosComponent } from './componentes/login/listado-usuarios/listado-usuarios.component';
 
 
 const routes: Routes = [ //acá es importante el orden del array
   { path: '', redirectTo: '/bienvenida', pathMatch: 'full'},
   { path: 'bienvenida', component: BienvenidaComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent,
+    children: [
+      { path: 'listado-usuarios', component: ListadoUsuariosComponent }
+    ]
+  },
   { path: 'registro', component: RegistroComponent },
   { path: 'quien-soy', component: QuienSoyComponent },
   { path: 'topmenu', component: TopmenuComponent },
-
-  //{ path: 'juegos', component: JuegosComponent },
-  //{ path: 'juegos/tateti', component: TatetiComponent },
-  //{ path: 'juegos/ppt', component: PptComponent },
-
   { path: 'juegos', component: JuegosComponent,
     children: [
       { path: 'tateti', component: TatetiComponent },

@@ -1,9 +1,11 @@
-<div class="limiter">
+<div class="limiter text-center">
     <div class="container-login100">
+        
+        <div class="grid-contenedores">
+
             <div class="wrap-login100">
                 <form [formGroup]="forma" class="login100-form" (ngSubmit)="ingresar()">
-                    <span class="login100-form-title p-b-26"> Ingreso </span>
-                    <div class="login100-form-title">
+                    <div class="login100-form-title p-b-26">
                         <a routerLink="/bienvenida">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-3" width="100" height="100" viewBox="0 0 24 24" stroke-width="2" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -13,9 +15,10 @@
                             </svg>
                         </a>
                     </div>
-
+                    <span class="login100-form-title p-b-26"> Ingreso </span>
+    
                     <div class="wrap-input100">
-                        <input class="input100" type="email" name="nombre" placeholder="Email" formControlName="email">
+                        <input class="input100" type="email" name="email" id="email" placeholder="Email" formControlName="email">
                     </div>
                     <small  class="texto-validacion text-center" 
                     *ngIf="forma.controls['email'].errors?.['required'] && forma.controls['email'].touched">
@@ -25,19 +28,19 @@
                     *ngIf="forma.controls['email'].errors?.['email'] && forma.controls['email'].touched">
                         El email es inválido.
                     </small>
-
+    
                     <div class="wrap-input100">
-                        <input class="input100" type="password" name="pass" placeholder="Contraseña" formControlName="contrasena">
+                        <input class="input100" type="password" name="pass" id="pass" placeholder="Contraseña" formControlName="contrasena">
                     </div>
                     <small class="texto-validacion text-center"
                     *ngIf="forma.controls['contrasena'].errors?.['required'] && forma.controls['contrasena'].touched">
                         La contraseña es requerida.
                     </small>
-
+    
                     <div class="mt-4 mb-1 d-flex justify-content-center">
                         <p class="texto-validacion" *ngIf="msjValidacion!=''">{{msjValidacion}}</p>
                     </div>
-
+    
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
@@ -47,12 +50,21 @@
                             </button>
                         </div>
                     </div>
-
+    
                     <div class="text-center p-t-115">
                         <span class="txt1"> No tienes una cuenta? </span>
                         <a class="txt2" routerLink="/registro"> Registrate </a>
                     </div>
                 </form>
             </div>
+    
+            <div class="wrap-login100">
+                <div>
+                    <app-listado-usuarios (datosLogin)="completaDatos($event)"></app-listado-usuarios>
+                </div>
+            </div>
+
         </div>
+
+    </div>
 </div>
