@@ -17,6 +17,7 @@ import { MayorMenorComponent } from './componentes/juegos/mayor-menor/mayor-meno
 import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
 import { DadosComponent } from './componentes/juegos/dados/dados.component';
 import { ListadoUsuariosComponent } from './componentes/login/listado-usuarios/listado-usuarios.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 
 
 const routes: Routes = [ //acá es importante el orden del array
@@ -41,6 +42,7 @@ const routes: Routes = [ //acá es importante el orden del array
       { path: 'listado-resultados', component: ListadoResultadosComponent }
     ] 
   },
+  { path: 'encuesta', component: EncuestaComponent },
   { path: '**', component: ErrorComponent }
 ]
 

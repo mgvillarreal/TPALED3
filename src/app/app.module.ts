@@ -21,6 +21,7 @@ import { MayorMenorComponent } from './componentes/juegos/mayor-menor/mayor-meno
 import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
 import { DadosComponent } from './componentes/juegos/dados/dados.component';
 import { ListadoUsuariosComponent } from './componentes/login/listado-usuarios/listado-usuarios.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ListadoUsuariosComponent } from './componentes/login/listado-usuarios/l
     MayorMenorComponent,
     AhorcadoComponent,
     DadosComponent,
-    ListadoUsuariosComponent
+    ListadoUsuariosComponent,
+    EncuestaComponent
   ],
   imports: [
     BrowserModule,

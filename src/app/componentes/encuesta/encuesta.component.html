@@ -1,0 +1,121 @@
+<app-topmenu></app-topmenu>
+
+<div class="mt-4 mb-4 d-flex justify-content-center">
+    <h1 class="titulo">Encuesta</h1>
+</div>
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form [formGroup]="forma" class="login100-form text-center" (ngSubmit)="guardaEncuesta()">
+
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="nombre" placeholder="Nombre" formControlName="nombre">
+                </div>
+                <small  class="texto-validacion text-center"
+                *ngIf="forma.controls['nombre'].errors?.['required'] && forma.controls['nombre'].touched">
+                    El nombre es requerido.
+                </small><br>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="apellido" placeholder="Apellido" formControlName="apellido">
+                </div>
+                <small  class="texto-validacion text-center"
+                *ngIf="forma.controls['apellido'].errors?.['required'] && forma.controls['apellido'].touched">
+                    El apellido es requerido.
+                </small><br>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="number" name="edad" placeholder="Edad" formControlName="edad">
+                </div>
+                <small  class="texto-validacion text-center"
+                *ngIf="forma.controls['edad'].errors?.['required'] && forma.controls['edad'].touched">
+                    La edad es requerida.
+                </small>
+                <small  class="texto-validacion text-center"
+                *ngIf="forma.controls['edad'].errors?.['min'] || forma.controls['edad'].errors?.['max']">
+                    La edad es inválida. Debes tener entre 18 y 99 años.
+                </small><br>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="tel" name="telefono" placeholder="Teléfono" formControlName="telf">
+                </div>
+                <small  class="texto-validacion text-center"
+                *ngIf="forma.controls['telf'].errors?.['required'] && forma.controls['telf'].touched">
+                    El teléfono es requerido.
+                </small>
+                <small  class="texto-validacion text-center"
+                *ngIf="forma.controls['telf'].errors?.['pattern']">
+                    El teléfono debe ser numérico y tener 10 dígitos.
+                </small><br>
+
+                <div class="d-flex justify-content-center">
+                    <label class="text-encuesta">¿En qué horario sueles jugar?</label><br>
+                    <div class="wrap-input100">
+                        <select class="input100"  name="horario" formControlName="horario">
+                            <option value="" selected hidden>Horario</option>
+                            <option value="1">Mañana</option>
+                            <option value="2">Tarde</option>
+                            <option value="3">Noche</option>
+                        </select>
+                    </div>
+                </div>
+                <small  class="texto-validacion text-center" 
+                *ngIf="forma.controls['horario'].errors?.['required'] && forma.controls['horario'].touched">
+                    Debe seleccionar un horario.
+                </small>
+
+                <div class="mt-4">
+                    <label  class="text-encuesta mb-3">Cuales son tus juegos favoritos?</label>
+                    <div class="grid-juegos">
+                        <div>
+                            <label class="grid-checkbox"> <input class="mt-1" type="checkbox" name="juegofav" formControlName="juegofav" value="ppt"> <p class="text-encuesta ml-2"> Piedra, Papel o Tijera </p> </label>
+                        </div>
+                        <label>
+                            <div class="grid-checkbox"> <input class="mt-1" type="checkbox" name="juegofav" formControlName="juegofav" value="ttt"> <p class="text-encuesta ml-2"> TaTeTí </p> </div>
+                        </label>
+                        <label>
+                            <div class="grid-checkbox"> <input class="mt-1" type="checkbox" name="juegofav" formControlName="juegofav" value="adivnum"> <p class="text-encuesta ml-2"> Adivina el Número </p> </div>
+                        </label>
+                        <label>
+                            <div class="grid-checkbox"> <input class="mt-1" type="checkbox" name="juegofav" formControlName="juegofav" value="ahorcado"> <p class="text-encuesta ml-2"> Ahorcado </p> </div>
+                        </label>
+                        <label>
+                            <div class="grid-checkbox"> <input class="mt-1" type="checkbox" name="juegofav" formControlName="juegofav" value="maymen"> <p class="text-encuesta ml-2"> Mayor o Menor </p> </div>
+                        </label>
+                        <label>
+                            <div class="grid-checkbox"> <input class="mt-1" type="checkbox" name="juegofav" formControlName="juegofav" value="dados"> <p class="text-encuesta ml-2"> Dados </p> </div>
+                        </label>
+                    </div>
+                </div>
+                <small  class="texto-validacion text-center"
+                *ngIf="forma.controls['juegofav'].errors?.['required']">
+                    Debe seleccionar al menos un juego.
+                </small><br>
+
+                <div class="mt-4">
+                    <label class="text-encuesta mb-3">Recomendarías esta sala de juegos a un amigo?</label>
+                    <div class="grid-recomend">
+                            <div class="grid-checkbox"> <input class="mt-1" type="radio" name="recomend" formControlName="recomend" value="si"> <p class="text-encuesta ml-2"> Sí </p> </div>
+                            <div class="grid-checkbox"> <input class="mt-1" type="radio" name="recomend" formControlName="recomend" value="no"> <p class="text-encuesta ml-2"> No </p> </div>
+                    </div>
+                </div>
+                <small  class="texto-validacion text-center"
+                *ngIf="forma.controls['recomend'].errors?.['required']">
+                    Debe seleccionar una opción.
+                </small><br>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn"
+                        [disabled]="forma.invalid">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
