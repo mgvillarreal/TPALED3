@@ -1,22 +1,18 @@
-body{
+* {
     font-family:'Source Sans Pro', sans-serif;
 }
 
 .texto-azul-titulo {
     color:#172a74;
-    font-weight: 400;
+    font-weight: 550;
 }
 
 .texto-azul {
     color:#172a74;
 }
-  
-.texto-centrado {
-    text-align: center;
-}
 
 .bggray {
-    background-color:E6EBEC;
+    padding-top: 25px;
     padding-bottom:10px;
 }
 
