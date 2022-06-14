@@ -1,0 +1,44 @@
+<div *ngIf="mailLogeado && !mostrarChat" class="chatIconContenedor" (click)="mostrarChat=true">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages chatIcon" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="#184e8e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
+        <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
+    </svg>
+</div>
+
+
+<div class="card text-center cardContainer" *ngIf="mailLogeado && mostrarChat">
+    <div class="card-header">
+        CHAT
+        <div class="closeIcon" (click)="mostrarChat=false">x</div>
+    </div>
+
+    <div id="contenedorMensajes" class="card-body contenedor-mensajes">
+      <div class="h-100">
+        <p *ngFor="let mensaje of listaMensajes" class="msj p-2"
+         [ngClass]="(mailLogeado==mensaje.emisor)? 'enviado' : 'recibido' "
+        >
+            {{mensaje.descripcion}}
+        </p>
+      </div>
+
+    </div>
+
+    <form class="card footer text-muted" (ngSubmit)="enviarMensaje()">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Mensaje" [(ngModel)]="nuevoMensaje" [ngModelOptions]="{standalone: true}">
+            <div class="input-group-append" (click)="enviarMensaje()">
+              <span class="input-group-text" id="basic-addon2">
+                <div class="btn-enviar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="16" height="16" viewBox="0 0 24 24" stroke-width="2.5" stroke="#184e8e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                        <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5" />
+                    </svg>
+                </div>
+              </span>
+            </div>
+        </div>
+    </form>
+
+</div>

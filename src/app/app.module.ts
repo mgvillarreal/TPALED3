@@ -22,6 +22,7 @@ import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.compon
 import { DadosComponent } from './componentes/juegos/dados/dados.component';
 import { ListadoUsuariosComponent } from './componentes/login/listado-usuarios/listado-usuarios.component';
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import { ChatComponent } from './componentes/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
     AhorcadoComponent,
     DadosComponent,
     ListadoUsuariosComponent,
-    EncuestaComponent
+    EncuestaComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

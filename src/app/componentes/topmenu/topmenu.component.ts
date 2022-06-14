@@ -17,7 +17,6 @@ export class TopmenuComponent implements OnInit {
     {
       this.estaLogueado = true;
       this.arrayUsuario = JSON.parse(localStorage.getItem('usuarioLog'));
-      console.log('prueba: ', this.arrayUsuario);
     }
   }
 
