@@ -11,19 +11,17 @@ export class AhorcadoComponent implements OnInit {
   imagen:number = 1;
   palabraSecreta:string;
   palabraVisible:string = "";
-  palabraVisibleAct:string;
   letra:string;
-  posicionLetra:number;
 
 
   constructor() {
-    this.palabraSecreta = 'prueba';
+    this.palabraSecreta = 'separar';
     this.crearPalabraVisible();
   }
 
   crearPalabraVisible():void{
     for (let i = 0; i < this.palabraSecreta.length; i++) {
-      this.palabraVisible = this.palabraVisible.concat("_ ");
+      this.palabraVisible = this.palabraVisible.concat("_");
     }
   };
 
@@ -36,8 +34,7 @@ export class AhorcadoComponent implements OnInit {
   jugar():void{
     if(this.palabraSecreta.indexOf(this.letra) != -1)
     {
-      this.actualizaPalabraVisible();
-      // console.log("prueba: ", this.palabraSecreta.charAt(this.palabraSecreta.indexOf(this.letra)));
+      this.actualizaPalabraVisible(this.letra);
     }
     else
     {
@@ -45,24 +42,19 @@ export class AhorcadoComponent implements OnInit {
     }
   }
 
-  actualizaPalabraVisible():void{
-    // this.palabraVisibleAct = this.palabraVisible.replace(this.palabraVisible[this.posicionLetra], this.letra);
-    // console.log("Prueba reemplazo: ", this.palabraVisibleAct);
-    // this.palabraVisible = this.palabraVisibleAct;
-    let retoro:String = "";
-    for (let i = 0; i < this.palabraSecreta.length; i++)
+  actualizaPalabraVisible(letra: string):void{
+    let aux =[...this.palabraVisible];
+
+    for(let i = 0; i<this.palabraSecreta.length; i++)
     {
-      if(this.palabraSecreta.charAt(i) == this.letra)
+      if(this.palabraSecreta[i] === letra)
       {
-        console.log("posicion char at: ", this.palabraSecreta.charAt(i));
-        retoro = retoro.concat(this.letra + " "); 
-      }
-      else
-      {
-        retoro = retoro.concat(this.palabraVisible.charAt(i) + " ");
+        aux[i] = letra; 
+        console.log(aux);
+        this.palabraVisible = aux.join("");
       }
     }
-    console.log("Palabra Actu: ", retoro);
+
   }
 
   ngOnInit(): void {
