@@ -1,1 +1,49 @@
-<p>ahorcado works!</p>
+<div class="mt-3">
+    <h2 class="text-center titulo">Ahorcado</h2>
+
+    <div class="text-center">
+        <img *ngIf="imagen==1" src="././assets/imagenes/ahorcado/uno.png">
+        <img *ngIf="imagen==2" src="././assets/imagenes/ahorcado/dos.png"> 
+        <img *ngIf="imagen==3" src="././assets/imagenes/ahorcado/tres.png"> 
+        <img *ngIf="imagen==4" src="././assets/imagenes/ahorcado/cuatro.png"> 
+        <img *ngIf="imagen==5" src="././assets/imagenes/ahorcado/cinco.png"> 
+        <img *ngIf="imagen==6" src="././assets/imagenes/ahorcado/seis.png"> 
+        <img *ngIf="imagen==7" src="././assets/imagenes/ahorcado/siete.png"> 
+    </div>
+
+    <div class="text-center">
+        <span *ngIf="palabraVisible!='' ">{{palabraVisible}}</span>
+    </div>
+
+    <div class="teclado-contenedor text-center mt-2">
+        <div class="teclado-letra" (click)="tomaLetra('a')">A</div>
+        <div class="teclado-letra" (click)="tomaLetra('b')">B</div>
+        <div class="teclado-letra" (click)="tomaLetra('c')">C</div>  
+        <div class="teclado-letra" (click)="tomaLetra('d')">D</div>
+        <div class="teclado-letra" (click)="tomaLetra('e')">E</div>
+        <div class="teclado-letra" (click)="tomaLetra('f')">F</div>  
+        <div class="teclado-letra" (click)="tomaLetra('g')">G</div>
+        <div class="teclado-letra" (click)="tomaLetra('h')">H</div>
+        <div class="teclado-letra" (click)="tomaLetra('i')">I</div>
+        <div class="teclado-letra" (click)="tomaLetra('j')">J</div>
+        <div class="teclado-letra" (click)="tomaLetra('k')">K</div>
+        <div class="teclado-letra" (click)="tomaLetra('l')">L</div>
+        <div class="teclado-letra" (click)="tomaLetra('m')">M</div>
+        <div class="teclado-letra" (click)="tomaLetra('n')">N</div>
+        <div class="teclado-letra" (click)="tomaLetra('ñ')">Ñ</div>
+        <div class="teclado-letra" (click)="tomaLetra('o')">O</div>
+        <div class="teclado-letra" (click)="tomaLetra('p')">P</div>
+        <div class="teclado-letra" (click)="tomaLetra('q')">Q</div>
+        <div class="teclado-letra" (click)="tomaLetra('r')">R</div>
+        <div class="teclado-letra" (click)="tomaLetra('s')">S</div>
+        <div class="teclado-letra" (click)="tomaLetra('t')">T</div>
+        <div class="teclado-letra" (click)="tomaLetra('u')">U</div>
+        <div class="teclado-letra" (click)="tomaLetra('v')">V</div>
+        <div class="teclado-letra" (click)="tomaLetra('w')">W</div>
+        <div class="teclado-letra" (click)="tomaLetra('x')">X</div>
+        <div class="teclado-letra" (click)="tomaLetra('y')">Y</div>
+        <div class="teclado-letra" (click)="tomaLetra('z')">Z</div>
+        <!-- <div class="teclado-letra">-</div>                      -->
+    </div>
+
+</div>
