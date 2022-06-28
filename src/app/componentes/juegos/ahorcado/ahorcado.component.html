@@ -11,39 +11,25 @@
         <img *ngIf="imagen==7" src="././assets/imagenes/ahorcado/siete.png"> 
     </div>
 
-    <div class="text-center">
-        <span *ngIf="palabraVisible!='' ">{{palabraVisible}}</span>
+    <div class="text-center mb-2">
+        <span class="palabra-visible" *ngIf="palabraVisible!='' ">{{palabraVisible}}</span>
     </div>
 
-    <div class="teclado-contenedor text-center mt-2">
-        <div class="teclado-letra" (click)="tomaLetra('a')">A</div>
-        <div class="teclado-letra" (click)="tomaLetra('b')">B</div>
-        <div class="teclado-letra" (click)="tomaLetra('c')">C</div>  
-        <div class="teclado-letra" (click)="tomaLetra('d')">D</div>
-        <div class="teclado-letra" (click)="tomaLetra('e')">E</div>
-        <div class="teclado-letra" (click)="tomaLetra('f')">F</div>  
-        <div class="teclado-letra" (click)="tomaLetra('g')">G</div>
-        <div class="teclado-letra" (click)="tomaLetra('h')">H</div>
-        <div class="teclado-letra" (click)="tomaLetra('i')">I</div>
-        <div class="teclado-letra" (click)="tomaLetra('j')">J</div>
-        <div class="teclado-letra" (click)="tomaLetra('k')">K</div>
-        <div class="teclado-letra" (click)="tomaLetra('l')">L</div>
-        <div class="teclado-letra" (click)="tomaLetra('m')">M</div>
-        <div class="teclado-letra" (click)="tomaLetra('n')">N</div>
-        <div class="teclado-letra" (click)="tomaLetra('ñ')">Ñ</div>
-        <div class="teclado-letra" (click)="tomaLetra('o')">O</div>
-        <div class="teclado-letra" (click)="tomaLetra('p')">P</div>
-        <div class="teclado-letra" (click)="tomaLetra('q')">Q</div>
-        <div class="teclado-letra" (click)="tomaLetra('r')">R</div>
-        <div class="teclado-letra" (click)="tomaLetra('s')">S</div>
-        <div class="teclado-letra" (click)="tomaLetra('t')">T</div>
-        <div class="teclado-letra" (click)="tomaLetra('u')">U</div>
-        <div class="teclado-letra" (click)="tomaLetra('v')">V</div>
-        <div class="teclado-letra" (click)="tomaLetra('w')">W</div>
-        <div class="teclado-letra" (click)="tomaLetra('x')">X</div>
-        <div class="teclado-letra" (click)="tomaLetra('y')">Y</div>
-        <div class="teclado-letra" (click)="tomaLetra('z')">Z</div>
-        <!-- <div class="teclado-letra">-</div>                      -->
+    <div class="teclado-contenedor text-center mt-4" *ngIf="tecladoActivado==1">
+        <div class="teclado-letra" (click)="tomaLetra(letra)" *ngFor="let letra of letras">{{letra}}</div>
+    </div>
+
+    <div class="teclado-contenedor text-center mt-4" *ngIf="tecladoActivado==0">
+        <div class="teclado-letra" *ngFor="let letra of letras">{{letra}}</div>
+    </div>
+
+    <div class="mt-2 mb-1 d-flex justify-content-center">
+        <p *ngIf="resultado!=''">{{resultado}}</p>
+    </div>
+
+    <div class="mt-2 d-flex justify-content-center">
+        <button class="btn btn-primary-blue ml-1" (click)="resetear()">Reset</button>
+        <button class="btn btn-primary-blue ml-1" routerLink="/juegos">Salir</button>
     </div>
 
 </div>

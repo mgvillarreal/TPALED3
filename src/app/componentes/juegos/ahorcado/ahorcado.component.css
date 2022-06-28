@@ -1,11 +1,14 @@
+*{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 .titulo {
     color: #172a74;
-    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 550;
 }
 
 img{
-    height: 27rem;
+    height: 22rem;
 }
 
 .tablero-contenedor{
@@ -16,7 +19,7 @@ img{
 .teclado-contenedor{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    width: 300px;
+    /* width: 300px; */
 }
 
 .teclado-letra{
@@ -29,10 +32,29 @@ img{
     border: 2px solid #4cb3efcf;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    font-family: 'Source Sans Pro', sans-serif;;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
 }
 
 .teclado-letra:hover {
     cursor: pointer;
+    font-size: large;
+}
+
+.palabra-visible{
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.btn-primary-blue {
+    border: 1px solid #172a74 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #172a74
+}
+
+.btn-primary-blue:hover {
     font-size: large;
 }
