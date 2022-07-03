@@ -21,9 +21,9 @@ export class TopmenuComponent implements OnInit {
   }
 
   desloguear():void{
-    this.estaLogueado = false;
     this.arrayUsuario.pop();
     localStorage.setItem("usuarioLog", JSON.stringify(this.arrayUsuario));
+    this.estaLogueado = false;
     this.router.navigate(['bienvenida']);
   }
 

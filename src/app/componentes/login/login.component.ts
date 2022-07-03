@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     usuarioLog.push({nombre: this.nombreOb, mail: this.mailOb, fechaIng: fechaIng.toLocaleDateString()})
     localStorage.setItem("usuarioLog", JSON.stringify(usuarioLog));
     this.miUsuario.estaLogueado = true;
-}
+  }
 
   /*ingresarAdmin(): void {
     console.info('Objeto ', this.miUsuario);
