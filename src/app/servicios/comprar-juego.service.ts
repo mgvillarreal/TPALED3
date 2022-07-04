@@ -11,6 +11,7 @@ export class ComprarJuegoService {
   // listadoJuegos:[] = [];
   listadoJuegos:string[];
   mensaje:string = "";
+  comprado:boolean=false;
 
   constructor() { }
 
@@ -33,35 +34,26 @@ export class ComprarJuegoService {
           if(this.mailJug === this.juegosComprados[i]['jugador'])
           {
             this.listadoJuegos = this.juegosComprados[i]['juegos']
-            // if(this.validaJuegoComprado(this.listadoJuegos))
-            // {
-            //   this.juegosComprados[i].juegos.push(this.juego);
-            //   localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
-            // }
-            // else
-            // {
-            //   this.mensaje = "Ya compró este juego anteriormente.";
-            //   return false;
-            // }
 
             if(this.listadoJuegos.includes(this.juego))
             {
-              console.info("ya compro");
               this.mensaje = "Ya compró este juego anteriormente.";              
             }
             else
             {
               this.juegosComprados[i].juegos.push(this.juego);
               localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
+              this.comprado = true;
             }
           }
-          else
-          {
-            // this.juegosComprados = [];
-            this.juegosComprados.push({jugador:this.mailJug, juegos: [this.juego]}); 
-            localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
-          }
           
+        }
+
+        if(!this.comprado)
+        {
+          // this.juegosComprados = [];
+          this.juegosComprados.push({jugador:this.mailJug, juegos: [this.juego]}); 
+          localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
         }
      
 
