@@ -22,6 +22,7 @@ import { ChatComponent } from './componentes/chat/chat.component';
 import { ComprarJuegoComponent } from './componentes/comprar-juego/comprar-juego.component';
 import { ListadoCompradosComponent } from './componentes/comprar-juego/listado-comprados/listado-comprados.component';
 import { JuegosGuard } from './guardianes/juegos.guard';
+import { RequiereComprarComponent } from './componentes/requiere-comprar/requiere-comprar.component';
 
 
 const routes: Routes = [ //acá es importante el orden del array
@@ -53,6 +54,7 @@ const routes: Routes = [ //acá es importante el orden del array
       { path: 'listado-comprados', component: ListadoCompradosComponent }
     ]
   },
+  { path: 'requiere-comprar', component: RequiereComprarComponent },
   { path: '**', component: ErrorComponent }
 ]
 

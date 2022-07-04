@@ -22,7 +22,7 @@ export class JuegosGuard implements CanActivate {
     }
     else
     {
-      this.router.navigate(['error']);
+      this.router.navigate(['requiere-comprar']);
       console.info("llego a denegar acceso");
       return false;
     }

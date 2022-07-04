@@ -1,0 +1,40 @@
+*{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.mainbox {
+    margin: auto;
+    height: 600px;
+    width: 500px;
+    position: relative;
+}
+  
+.err {
+    color: #172a74;
+    font-size: 80px;
+    font-weight: 550;
+    /*position: absolute;*/
+    left: 27%;
+    top: 8%;
+}
+  
+.msg {
+    text-align: center;
+    font-size: 1.6rem;
+    position: absolute;
+    left: 16%;
+    top: 45%;
+    width: 75%;
+}
+  
+a {
+    text-decoration: none;
+    color: #21d4fd;
+    
+}
+  
+a:hover {
+    text-decoration: none;
+    color: #172a74;
+    font-size: 1.8rem;
+}
