@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Tateti } from '../clases/tateti';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,8 @@ export class ComprarJuegoService {
   juego:string;
   juegosComprados:any[];
   mailJug:string;
-  listadoJuegos:any;
+  listadoJuegos:[] = [];
+  mensaje:string = "";
 
   constructor() { }
 
@@ -17,7 +17,8 @@ export class ComprarJuegoService {
     this.juego = juego;
   }
 
-  comprarJuego():void{
+  comprarJuego():boolean{
+    
     this.obtengoJugador();
 
     if(confirm('Desea comprar el juego?'))
@@ -30,9 +31,19 @@ export class ComprarJuegoService {
         {
           if(this.mailJug === this.juegosComprados[i]['jugador'])
           {
-            this.juegosComprados[i].juegos.push(this.juego);
-            localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
+            this.listadoJuegos = this.juegosComprados[i]['juegos']
+            if(this.validaJuegoComprado(this.listadoJuegos))
+            {
+              this.juegosComprados[i].juegos.push(this.juego);
+              localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
+            }
+            else
+            {
+              this.mensaje = "Ya compró este juego anteriormente.";
+              return false;
+            }
           }
+          
         }
 
       }
@@ -41,9 +52,30 @@ export class ComprarJuegoService {
         this.juegosComprados = [];
         this.juegosComprados.push({jugador:this.mailJug, juegos: [this.juego]}); 
         localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
+        return true;
       }
     }
+    return false;
 
+  }
+
+  validaJuegoComprado(listaJuegos: any):boolean{
+    console.info("en validacion: ", listaJuegos);
+    console.info("en validacion2: ", this.juego);
+    for(let i in listaJuegos)
+    {
+      if(this.juego === listaJuegos[i])
+      {
+        console.info("es falso porque: ", listaJuegos[i]);
+        return false;
+      }
+      else
+      {
+        console.info("es verdadero");
+        return true;
+      }
+    }
+    return false;
   }
 
   obtengoJugador():void{

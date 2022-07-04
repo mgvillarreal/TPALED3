@@ -11,7 +11,7 @@ export class ComprarJuegoComponent implements OnInit {
   juego:string;
   juegoSeleccionado = "";
 
-  constructor(private comprarServ: ComprarJuegoService) {
+  constructor(public comprarServ: ComprarJuegoService) {
   
   }
 
@@ -20,13 +20,18 @@ export class ComprarJuegoComponent implements OnInit {
 
   recibeJuego(juego: string):void{
     this.juego = juego;
-    this.juegoSeleccionado = juego;
+    // this.juegoSeleccionado = juego;
     this.comprarServ.obtieneJuego(this.juego);
-    this.comprar();
+    this.comprarServ.comprarJuego();
+
+    //this.actListado();
   }
 
-  comprar():void{
-    this.comprarServ.comprarJuego();
+  actListado():void{
+    if(this.comprarServ.comprarJuego)
+    {
+      this.juegoSeleccionado = this.juego;
+    }
   }
 
 }
