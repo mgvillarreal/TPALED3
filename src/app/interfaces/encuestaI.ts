@@ -3,7 +3,7 @@ export interface EncuestaI {
     apellido:string;
     edad:number;
     telf:number;
-    horario:string;
+    horario:number;
     juegofav:string;
     recomend:string;
 }
