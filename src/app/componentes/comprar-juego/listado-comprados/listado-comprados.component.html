@@ -2,20 +2,14 @@
 
     <h5 class="titulo mb-1 text-center">Mis Juegos</h5>
 
-    <div *ngIf="comprarServ.listadoJuegos!=[]">
+    <div>
       <div class="mt-2 text-center">
         <div *ngFor="let juegos of comprarServ.listadoJuegos">
           <span>{{juegos}}</span>
+          
         </div>
-
-        <p> {{juegoSeleccionado}} </p>
       </div>
-    </div>
-
-    <div *ngIf="comprarServ.listadoJuegos==[]">
-      <div class="mt-2 text-center">
-        <p> No has comprado juegos aún. </p>
-      </div>
+      <p> {{juegoSeleccionado}} </p>
     </div>
 
 </div>

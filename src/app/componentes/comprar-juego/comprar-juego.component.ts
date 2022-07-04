@@ -24,14 +24,15 @@ export class ComprarJuegoComponent implements OnInit {
     this.comprarServ.obtieneJuego(this.juego);
     this.comprarServ.comprarJuego();
 
-    //this.actListado();
+    this.actListado();
   }
 
   actListado():void{
-    if(this.comprarServ.comprarJuego)
-    {
-      this.juegoSeleccionado = this.juego;
-    }
+    // if(this.comprarServ.comprarJuego)
+    // {
+    //   this.juegoSeleccionado = this.juego;
+    // }
+    this.comprarServ.llenarJuegos();
   }
 
 }

@@ -8,7 +8,8 @@ export class ComprarJuegoService {
   juego:string;
   juegosComprados:any[];
   mailJug:string;
-  listadoJuegos:[] = [];
+  // listadoJuegos:[] = [];
+  listadoJuegos:string[];
   mensaje:string = "";
 
   constructor() { }
@@ -32,19 +33,31 @@ export class ComprarJuegoService {
           if(this.mailJug === this.juegosComprados[i]['jugador'])
           {
             this.listadoJuegos = this.juegosComprados[i]['juegos']
-            if(this.validaJuegoComprado(this.listadoJuegos))
+            // if(this.validaJuegoComprado(this.listadoJuegos))
+            // {
+            //   this.juegosComprados[i].juegos.push(this.juego);
+            //   localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
+            // }
+            // else
+            // {
+            //   this.mensaje = "Ya compró este juego anteriormente.";
+            //   return false;
+            // }
+
+            if(this.listadoJuegos.includes(this.juego))
+            {
+              console.info("ya compro");
+              this.mensaje = "Ya compró este juego anteriormente.";              
+            }
+            else
             {
               this.juegosComprados[i].juegos.push(this.juego);
               localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
             }
-            else
-            {
-              this.mensaje = "Ya compró este juego anteriormente.";
-              return false;
-            }
           }
           
         }
+     
 
       }
       else
@@ -59,24 +72,24 @@ export class ComprarJuegoService {
 
   }
 
-  validaJuegoComprado(listaJuegos: any):boolean{
-    console.info("en validacion: ", listaJuegos);
-    console.info("en validacion2: ", this.juego);
-    for(let i in listaJuegos)
-    {
-      if(this.juego === listaJuegos[i])
-      {
-        console.info("es falso porque: ", listaJuegos[i]);
-        return false;
-      }
-      else
-      {
-        console.info("es verdadero");
-        return true;
-      }
-    }
-    return false;
-  }
+  // validaJuegoComprado(listaJuegos: any):boolean{
+  //   console.info("en validacion: ", listaJuegos);
+  //   console.info("en validacion2: ", this.juego);
+  //   for(let i in listaJuegos)
+  //   {
+  //     if(this.juego === listaJuegos[i])
+  //     {
+  //       console.info("es falso porque: ", listaJuegos[i]);
+  //       return false;
+  //     }
+  //     else
+  //     {
+  //       console.info("es verdadero");
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 
   obtengoJugador():void{
     let usurioLogeado = JSON.parse(localStorage.getItem('usuarioLog'));
@@ -103,6 +116,10 @@ export class ComprarJuegoService {
         }
       }
 
+    }
+    else
+    {
+      this.juegosComprados = [];
     }
   }
 

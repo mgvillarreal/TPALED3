@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EncuestaI } from 'src/app/interfaces/encuestaI';
+import { EncuestaService } from 'src/app/servicios/encuesta.service';
 
 @Component({
   selector: 'app-encuesta',
@@ -9,11 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EncuestaComponent implements OnInit {
 
   public forma: FormGroup;
+  public encuesta: EncuestaI;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private servEncuesta: EncuestaService) { }
 
   guardaEncuesta(){
-
+    this.servEncuesta.guardaEncuesta(this.forma.value);
   }
 
   ngOnInit(): void {
