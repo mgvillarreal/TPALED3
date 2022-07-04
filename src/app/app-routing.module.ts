@@ -23,6 +23,7 @@ import { ComprarJuegoComponent } from './componentes/comprar-juego/comprar-juego
 import { ListadoCompradosComponent } from './componentes/comprar-juego/listado-comprados/listado-comprados.component';
 import { JuegosGuard } from './guardianes/juegos.guard';
 import { RequiereComprarComponent } from './componentes/requiere-comprar/requiere-comprar.component';
+import { JuegosCompradosComponent } from './componentes/juegos-comprados/juegos-comprados.component';
 
 
 const routes: Routes = [ //acá es importante el orden del array
@@ -54,6 +55,7 @@ const routes: Routes = [ //acá es importante el orden del array
       { path: 'listado-comprados', component: ListadoCompradosComponent }
     ]
   },
+  { path: 'juegos-comprados', component: JuegosCompradosComponent },
   { path: 'requiere-comprar', component: RequiereComprarComponent },
   { path: '**', component: ErrorComponent }
 ]

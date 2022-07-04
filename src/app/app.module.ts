@@ -31,6 +31,7 @@ import { ChatComponent } from './componentes/chat/chat.component';
 import { ComprarJuegoComponent } from './componentes/comprar-juego/comprar-juego.component';
 import { ListadoCompradosComponent } from './componentes/comprar-juego/listado-comprados/listado-comprados.component';
 import { RequiereComprarComponent } from './componentes/requiere-comprar/requiere-comprar.component';
+import { JuegosCompradosComponent } from './componentes/juegos-comprados/juegos-comprados.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RequiereComprarComponent } from './componentes/requiere-comprar/requier
     ChatComponent,
     ComprarJuegoComponent,
     ListadoCompradosComponent,
-    RequiereComprarComponent
+    RequiereComprarComponent,
+    JuegosCompradosComponent
   ],
   imports: [
     BrowserModule,

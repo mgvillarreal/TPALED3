@@ -1,0 +1,41 @@
+<app-topmenu></app-topmenu>
+
+<div class="row mt-4">
+
+    <div class="card text-center mb-4">
+        <h5 class="titulo mb-1 text-center">Usuarios Mayor o Menor</h5>
+        <div class="grid-metas mt-5 mb-5 text-center">
+            <div class="contenido" *ngFor="let usuario of listadoMayorMenor">
+                 <div>{{usuario.jugador}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card text-center mb-4">
+        <h5 class="titulo mb-1 text-center">Usuarios Ahorcado</h5>
+        <div class="grid-metas mt-5 mb-5 text-center">
+            <div class="contenido" *ngFor="let usuario of listadoAhorcado">
+                 <div>{{usuario.jugador}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card text-center mb-4">
+        <h5 class="titulo mb-1 text-center">Usuarios Tatetí</h5>
+        <div class="grid-metas mt-5 mb-5 text-center">
+            <div class="contenido" *ngFor="let usuario of listadoTateti">
+                 <div>{{usuario.jugador}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card text-center mb-4">
+        <h5 class="titulo mb-1 text-center">Usuarios Dados</h5>
+        <div class="grid-metas mt-5 mb-5 text-center">
+            <div class="contenido" *ngFor="let usuario of listadoDados">
+                 <div>{{usuario.jugador}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>

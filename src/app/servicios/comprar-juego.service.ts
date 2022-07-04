@@ -55,6 +55,12 @@ export class ComprarJuegoService {
               localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
             }
           }
+          else
+          {
+            // this.juegosComprados = [];
+            this.juegosComprados.push({jugador:this.mailJug, juegos: [this.juego]}); 
+            localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
+          }
           
         }
      
