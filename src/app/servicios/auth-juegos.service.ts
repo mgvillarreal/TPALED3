@@ -36,7 +36,7 @@ export class AuthJuegosService {
           for(let j in this.listadoJuegos)
           {
             console.log("bandera: ", bandera);
-            if(this.rutaJuego === this.listadoJuegos[j])
+            if(this.rutaJuego === this.listadoJuegos[j] || this.rutaJuego === 'PPT' || this.rutaJuego === 'Adivina')
             {
               console.info("tiene acceso");
               this.tieneAcceso = true;
@@ -53,6 +53,20 @@ export class AuthJuegosService {
         console.info("no tiene acceso");
       }
 
+    }
+    else
+    {
+      if(this.rutaJuego === 'PPT' || this.rutaJuego === 'Adivina')
+      {
+        console.info("tiene acceso");
+        this.tieneAcceso = true;
+      }
+      else
+      {
+        this.tieneAcceso = false;
+        console.info("no tiene acceso");
+      }
+      
     }
 
   }
