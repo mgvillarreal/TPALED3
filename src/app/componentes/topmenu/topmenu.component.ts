@@ -13,11 +13,12 @@ export class TopmenuComponent implements OnInit {
   arrayUsuario = [];
 
   constructor(private router: Router) {
-    if(localStorage.getItem('usuarioLog') !== null)
+    if(localStorage.getItem('usuarioLog').length > 2)
     {
       this.estaLogueado = true;
       this.arrayUsuario = JSON.parse(localStorage.getItem('usuarioLog'));
     }
+
   }
 
   desloguear():void{
