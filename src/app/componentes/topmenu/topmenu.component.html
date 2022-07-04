@@ -22,7 +22,7 @@
                             <li class="nav-item" role="presentation"><a class="nav-link active" routerLink="/quien-soy">Quién Soy</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link active" routerLink="/juegos">Juegos</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link active" routerLink="/encuesta">Encuesta</a></li>
-                            <li class="nav-item" role="presentation"><a class="nav-link active" routerLink="/comprar-juego">Comprar</a></li>
+                            <li *ngIf="estaLogueado==true" class="nav-item" role="presentation"><a class="nav-link active" routerLink="/comprar-juego">Comprar</a></li>
                         </ul>
                         <form class="form-inline mr-auto" target="_self">
                             <!--div class="form-group">
