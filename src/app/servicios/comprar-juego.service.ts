@@ -19,27 +19,31 @@ export class ComprarJuegoService {
 
   comprarJuego():void{
     this.obtengoJugador();
-    if(localStorage.getItem('juegosComprados') !== null)
-    {
-      this.juegosComprados = JSON.parse(localStorage.getItem('juegosComprados'));
 
-      for (let i in this.juegosComprados)
+    if(confirm('Desea comprar el juego?'))
+    {
+      if(localStorage.getItem('juegosComprados') !== null)
       {
-        if(this.mailJug === this.juegosComprados[i]['jugador'])
-        {
-          this.juegosComprados[i].juegos.push(this.juego);
-          localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
-        }
-      }
+        this.juegosComprados = JSON.parse(localStorage.getItem('juegosComprados'));
 
+        for (let i in this.juegosComprados)
+        {
+          if(this.mailJug === this.juegosComprados[i]['jugador'])
+          {
+            this.juegosComprados[i].juegos.push(this.juego);
+            localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
+          }
+        }
+
+      }
+      else
+      {
+        this.juegosComprados = [];
+        this.juegosComprados.push({jugador:this.mailJug, juegos: [this.juego]}); 
+        localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
+      }
     }
-    else
-    {
-      this.juegosComprados = [];
-      this.juegosComprados.push({jugador:this.mailJug, juegos: [this.juego]}); 
-      localStorage.setItem("juegosComprados", JSON.stringify(this.juegosComprados));
-    }
-    
+
   }
 
   obtengoJugador():void{
@@ -64,7 +68,6 @@ export class ComprarJuegoService {
         if(this.mailJug === this.juegosComprados[i]['jugador'])
         {
           this.listadoJuegos = this.juegosComprados[i]['juegos'];
-          console.log("prueba: ", this.listadoJuegos[1]);
         }
       }
 

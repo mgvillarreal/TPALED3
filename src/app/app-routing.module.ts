@@ -21,6 +21,7 @@ import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 import { ComprarJuegoComponent } from './componentes/comprar-juego/comprar-juego.component';
 import { ListadoCompradosComponent } from './componentes/comprar-juego/listado-comprados/listado-comprados.component';
+import { JuegosGuard } from './guardianes/juegos.guard';
 
 
 const routes: Routes = [ //acá es importante el orden del array
@@ -36,12 +37,12 @@ const routes: Routes = [ //acá es importante el orden del array
   { path: 'topmenu', component: TopmenuComponent },
   { path: 'juegos', component: JuegosComponent,
     children: [
-      { path: 'tateti', component: TatetiComponent },
-      { path: 'ppt', component: PptComponent },
-      { path: 'adivina-numero', component: AdivinaNumeroComponent },
-      { path: 'mayor-menor', component: MayorMenorComponent },
-      { path: 'ahorcado', component: AhorcadoComponent },
-      { path: 'dados', component: DadosComponent },
+      { path: 'tateti', component: TatetiComponent, canActivate: [JuegosGuard] },
+      { path: 'ppt', component: PptComponent, canActivate: [JuegosGuard] },
+      { path: 'adivina-numero', component: AdivinaNumeroComponent, canActivate: [JuegosGuard] },
+      { path: 'mayor-menor', component: MayorMenorComponent, canActivate: [JuegosGuard] },
+      { path: 'ahorcado', component: AhorcadoComponent, canActivate: [JuegosGuard] },
+      { path: 'dados', component: DadosComponent, canActivate: [JuegosGuard] },
       { path: 'listado-resultados', component: ListadoResultadosComponent }
     ] 
   },
