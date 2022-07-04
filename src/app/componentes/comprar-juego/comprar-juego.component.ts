@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComprarJuegoService } from 'src/app/servicios/comprar-juego.service';
 
 @Component({
   selector: 'app-comprar-juego',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComprarJuegoComponent implements OnInit {
 
-  constructor() { }
+  juego:string;
+  juegoSeleccionado = "";
+
+  constructor(private comprarServ: ComprarJuegoService) {
+  
+  }
 
   ngOnInit(): void {
+  }
+
+  recibeJuego(juego: string):void{
+    this.juego = juego;
+    this.juegoSeleccionado = juego;
+    this.comprarServ.obtieneJuego(this.juego);
+    this.comprar();
+  }
+
+  comprar():void{
+    this.comprarServ.comprarJuego();
   }
 
 }

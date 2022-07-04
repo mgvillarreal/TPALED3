@@ -3,7 +3,13 @@
 }
 
 .container{
-    padding-top: 135px;
+    padding-top: 50px;
+}
+
+.grid-cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row: 2;
 }
 
 .imagen-juego{

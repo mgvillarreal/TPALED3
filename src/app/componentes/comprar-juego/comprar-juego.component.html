@@ -1,39 +1,47 @@
 <app-topmenu></app-topmenu>
 
-<div class="container mt-4">
-    <div class="row text-center">
-
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="././assets/imagenes/tateti.png" alt="" class="imagen-juego">
-                <h5 class="mb-0">Ta Te Tí</h5>
-                <span class="small text-uppercase text-muted">Dificultad Alta</span><br>
-                <button class="btn btn-comprar">Comprar</button>
+    <div class="container mt-2">
+        <div class="row text-center">
+    
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="././assets/imagenes/tateti.png" alt="" class="imagen-juego">
+                    <h5 class="mb-0">Ta Te Tí</h5>
+                    <span class="small text-uppercase text-muted">Dificultad Alta</span><br>
+                    <button class="btn btn-comprar" (click)="recibeJuego('Tatetí')">Comprar</button>
+                </div>
             </div>
-        </div>
-
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="././assets/imagenes/mayormenor.png" alt="" class="imagen-juego">
-                <h5 class="mb-0">Mayor o Menor</h5>
-                <span class="small text-uppercase text-muted">Dificultad Baja</span><br>
-                <button class="btn btn-comprar">Comprar</button>
+    
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="././assets/imagenes/mayormenor.png" alt="" class="imagen-juego">
+                    <h5 class="mb-0">Mayor o Menor</h5>
+                    <span class="small text-uppercase text-muted">Dificultad Baja</span><br>
+                    <button class="btn btn-comprar" (click)="recibeJuego('Mayor o Menor')">Comprar</button>
+                </div>
             </div>
-        </div>
-
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="././assets/imagenes/ahorcado.png" alt="" class="imagen-juego">
-                <h5 class="mb-0">Ahorcado</h5>
-                <span class="small text-uppercase text-muted">Dificultad Media</span><br>
-                <button class="btn btn-comprar">Comprar</button>
+    
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="././assets/imagenes/ahorcado.png" alt="" class="imagen-juego">
+                    <h5 class="mb-0">Ahorcado</h5>
+                    <span class="small text-uppercase text-muted">Dificultad Media</span><br>
+                    <button class="btn btn-comprar" (click)="recibeJuego('Ahorcado')">Comprar</button>
+                </div>
             </div>
-        </div>
-
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="././assets/imagenes/dados.png" alt="" class="imagen-juego">
-                <h5 class="mb-0">Dados</h5>
-                <span class="small text-uppercase text-muted">Dificultad Alta</span><br>
-                <button class="btn btn-comprar">Comprar</button>
+    
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="././assets/imagenes/dados.png" alt="" class="imagen-juego">
+                    <h5 class="mb-0">Dados</h5>
+                    <span class="small text-uppercase text-muted">Dificultad Alta</span><br>
+                    <button class="btn btn-comprar" (click)="recibeJuego('Dados')">Comprar</button>
+                </div>
             </div>
+    
         </div>
-
     </div>
-</div>
+
+    <div>
+        <app-listado-comprados [juegoSeleccionado]="juegoSeleccionado"></app-listado-comprados>
+    </div>
+
+
+
+

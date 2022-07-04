@@ -14,14 +14,11 @@ export class ListadoUsuariosComponent implements OnInit {
   constructor(public registrados: RegistradosService) { }
 
   agregarUnLogin(jugador: string) {
-    console.log('info traida: ', jugador);
     this.datosLogin.emit(jugador);
   }
 
   ngOnInit(): void {
-
     this.registrados.llenaArray();
-  
   }
 
 }

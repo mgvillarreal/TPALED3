@@ -24,6 +24,7 @@ import { ListadoUsuariosComponent } from './componentes/login/listado-usuarios/l
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 import { ComprarJuegoComponent } from './componentes/comprar-juego/comprar-juego.component';
+import { ListadoCompradosComponent } from './componentes/comprar-juego/listado-comprados/listado-comprados.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ComprarJuegoComponent } from './componentes/comprar-juego/comprar-juego
     ListadoUsuariosComponent,
     EncuestaComponent,
     ChatComponent,
-    ComprarJuegoComponent
+    ComprarJuegoComponent,
+    ListadoCompradosComponent
   ],
   imports: [
     BrowserModule,
